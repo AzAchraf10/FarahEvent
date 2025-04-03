@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <link rel="stylesheet" href="styles/nav.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle">☰</div>
+        
+        <!-- Liens pour version desktop -->
+        <div class="nav-links left">
+            <a href="#">Acceuil</a>
+            <a href="#">Préstation</a>
+            <a href="#">Réservation</a>
+        </div>
+
+        <div class="logo">
+            <img src="include/images/logo.png" alt="Farah Logo"> 
+        </div>
+        
+        <div class="nav-links right">
+            <a href="#">A Propos</a>
+            <a href="#">Contactez-Nous</a>
+            <a href="#">Se Connectez</a>
+        </div>
+        
+        <!-- Liens regroupés pour version mobile -->
+        <div class="all-links">
+            <a href="#">Acceuil</a>
+            <a href="#">Préstation</a>
+            <a href="#">Réservation</a>
+            <a href="#">A Propos</a>
+            <a href="#">Contactez-Nous</a>
+            <a href="#">Se Connectez</a>
+        </div>
+    </nav>
+
+    <script>
+        // Script simple pour le menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.all-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
