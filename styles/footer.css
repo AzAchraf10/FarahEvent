@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'Parisienne';
+    src: url("../include/fonts/Parisienne-Regular.ttf");
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url("../include/fonts/Roboto-Thin.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Roboto';
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    padding: 40px 0px;
+}
+
+.footer-container {
+    padding-top: 15px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-logo{
+    width: 60%;
+    height: auto;
+}
+
+.footer-container div {
+   flex: 1;
+   padding: 0 15px;
+}
+
+.footer-container h2 {
+    color: gold;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: "Parisienne";
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer-container ul {
+    list-style: none;
+}
+
+.footer-container ul li {
+    margin: 5px 0;
+}
+
+.footer-container ul li a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.footer-container ul li a:hover {
+    color: gold;
+}
+
+.footer-container p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.footer-container a {
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.footer-container a:hover {
+    color: gold;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid rgba(52, 52, 52, 0.8);
+}
+.footer-bottom p {
+    padding-top: 15px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 575px) {
+    /* Extra Small devices (phones) */
+    .footer-container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    
+    .footer-container div {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        width: 50%;
+        margin: 0 auto;
+    }
+    
+    .footer-container h2 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    /* Small devices (tablets) */
+    .footer-container {
+        flex-wrap: wrap;
+        padding: 0 15px;
+    }
+    
+    .footer-container div {
+        flex: 0 0 50%;
+        margin-bottom: 20px;
+    }
+    
+    .footer-logo {
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Medium devices (small laptops) */
+    .footer-container {
+        padding: 0 20px;
+    }
+    
+    .footer-logo {
+        width: 80%;
+    }
+    
+    .footer-container h2 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    /* Large devices (desktops) */
+    .footer-container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+    /* Extra large devices (large desktops) */
+    .footer-container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    /* Extra extra large devices */
+    .footer-container {
+        max-width: 1320px;
+    }
+}
