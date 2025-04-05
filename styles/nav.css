@@ -1,13 +1,3 @@
-@font-face {
-    font-family: 'Parisienne';
-    src: url("../include/fonts/Parisienne-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url("../include/fonts/Roboto-Thin.ttf");
-}
-
 /* Reset et styles de base */
 * {
     margin: 0;
