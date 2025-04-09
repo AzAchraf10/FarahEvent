@@ -8,7 +8,7 @@
    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-    <?php include '../../nav.html'; ?>
+    <?php include '../nav.html'; ?>
     <div class="image-container">
         <div>Créons ensemble des événements qui resteront gravés dans vos mémoires.</div>
         <h2>Réservation</h2>
@@ -202,7 +202,7 @@
         </button>
     </div>
     </section>
-    <?php include '../../footer.html'; ?>
+    <?php include '../footer.html'; ?>
     <script>
             document.querySelector('.reservation-form').addEventListener('submit', function (e) {
             const form = e.target;
