@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
     font-family: 'Roboto';
+    color: aliceblue;
 }
 
 footer {
@@ -88,12 +88,19 @@ footer {
     /* Extra Small devices (phones) */
     .footer-container {
         flex-direction: column;
-        padding: 0 20px;
+        padding: 0px 20px;
     }
     
     .footer-container div {
-        margin-bottom: 20px;
         text-align: center;
+    }
+
+    .footer-container div:nth-child(2){
+        display: none;
+    }
+
+    .footer-container div:nth-child(3){
+        display: none;
     }
     
     .footer-logo {

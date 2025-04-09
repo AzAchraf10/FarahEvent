@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #fffcf1;
+    background-color:  #fff1f1;
 }
 .hero {
     position: relative;
     width: 100%;
-    height: 550px;
+    height: 600px;
     overflow: hidden;
     background-size: cover;
     display: flex;
@@ -240,6 +240,7 @@ video {
 @media screen and (max-width: 575px) {
     .hero{
         height: 200px;
+        margin-top: 55px;
     }
     .hero h1 {
         font-size: 2.5rem;
