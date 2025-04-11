@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    hello world!!!
+    <?php include '../nav.html'; ?>
+
+    <?php include '../footer.html'; ?>
 </body>
 </html>
