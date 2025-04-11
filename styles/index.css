@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color:  #fff1f1;
+    background-color:  #fffcf1;
 }
 .hero {
     position: relative;
@@ -182,65 +182,12 @@ video {
     display: inline-block;
 }
 
-.section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #dd9d15;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.container h2{
-    font-size: 1.2rem;
-    font-family: "Roboto";
-    font-weight: bold;
-    color: #dd9d15;
-}
-
-.container h3{
-    font-size: 2.5rem;
-    font-family: "Parisienne";
-    color: black;
-    text-transform: capitalize;
-    margin-bottom: 30px;
-}
-
-/* Carte de témoignage */
-.testimonial-card {
-    background-color: #fff;
-    border-radius: 8px;
-    min-height: 250px; /* Ajuste si besoin */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Cercle avec l'initiale */
-.avatar-circle {
-    background-color: #dd9d15;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.initial {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-}
-
-/* Étoiles en or */
-.stars {
-    color: #f0c30f;
-    font-size: 1.2rem;
-}
 
 /* Smartphones (petits écrans) */
 @media screen and (max-width: 575px) {
     .hero{
         height: 200px;
-        margin-top: 55px;
+        margin-top: 50px;
     }
     .hero h1 {
         font-size: 2.5rem;

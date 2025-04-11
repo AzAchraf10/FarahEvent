@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauté de la mariée</title>
     <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../../styles/nav.css">
+    <link rel="stylesheet" href="../../styles/fonts.css">
+    <link rel="stylesheet" href="../../styles/footer.css"> 
 </head>
 <body>
-    <?php include '../../nav.html'; ?>
+    <?php 
+        include '../../nav.html'; 
+    ?>
     <div class="image-container">
         <div>Éclat et élégance pour une beauté inoubliable.</div>
         <h2>Beauté de la mariée</h2>

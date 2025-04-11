@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Parisienne';
-    src: url("../include/fonts/Parisienne-Regular.ttf");
+    src: url("/FarahEvent/include/fonts/Parisienne-Regular.ttf");
 }
 @font-face {
     font-family: 'Roboto';
-    src: url("../include/fonts/Roboto-Thin.ttf");
+    src: url("/FarahEvent/include/fonts/Roboto-Thin.ttf");
 }
