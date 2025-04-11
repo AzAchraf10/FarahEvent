@@ -168,6 +168,10 @@ body {
     background-image: url('include/images/image1.jpeg');
 }
 
+.pack-buttons a{
+    text-decoration: none;
+}
+
 .btn-pack {
     background-color: #333;
     color: white;

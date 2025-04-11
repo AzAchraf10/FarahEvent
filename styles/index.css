@@ -1,17 +1,36 @@
+/* Reset et base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color:  #fffcf1;
+
+body {
+    background-color: #fffcf1;
+    font-family: "Roboto", sans-serif;
 }
+
+/* Typographie */
+h1, h2, h3, .hero a, .bienvenue a {
+    font-family: "Parisienne", cursive;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+p {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.69);
+    margin-top: 20px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+/* Section héro */
 .hero {
     position: relative;
     width: 100%;
     height: 600px;
     overflow: hidden;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,16 +44,15 @@ body{
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -1;
 }
 
 .hero h1 {
     font-size: 5.5rem;
-    color: rgb(255, 255, 255);
+    color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: "Parisienne";
-    font-weight: bold;
-    text-transform: capitalize;
 }
 
 .hero a {
@@ -43,194 +61,246 @@ body{
     padding: 10px 80px;
     border: 1.5px solid white;
     border-radius: 50px;
-    font-family: "Parisienne";
     font-size: 1.5rem;
     transition: background-color 0.3s ease;
-    text-transform: capitalize;
 }
+
 .hero a:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: #000;
 }
+
+/* Structure des sections */
 section {
     margin: 60px 20px;
 }
-.bienvenue{
+
+/* Section Bienvenue */
+.bienvenue {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
-.bienvenue div:first-child{
+
+.bienvenue div:first-child {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-.bienvenue div:first-child h2{
+
+.bienvenue div:first-child h2 {
     font-size: 2rem;
-    font-family: "Parisienne";
-    font-weight: bold;
     color: #dd9d15;
 }
-.bienvenue div:first-child h3{
+
+.bienvenue div:first-child h3 {
     font-size: 3rem;
-    font-family: "Parisienne";
-    font-weight: bold;
-    color: black;
+    color: #000;
 }
-p{
-    font-size: 1rem;
-    font-family: "Roboto";
-    color: rgba(0, 0, 0, 0.69);
-    margin-top: 20px;
-    margin-left: 6px;
-    font-weight: bold;
-}
-.bienvenue div:first-child a{
+
+.bienvenue div:first-child a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: #000;
     margin-top: 40px;
-    padding: 5px 0px;
-    border: 1px solid rgb(0, 0, 0);
+    padding: 5px 0;
+    border: 1px solid #000;
     border-radius: 50px;
-    font-family: "Parisienne";
     font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out;
-    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
     text-align: center;
     width: 120px;
     margin-left: 40%;
 }
-.bienvenue div:first-child a:hover{
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+
+.bienvenue div:first-child a:hover {
+    background-color: #000;
+    color: #fff;
 }
-.bienvenue div:last-child{
+
+.bienvenue div:last-child {
     flex: 1;
 }
+
+/* Conteneur vidéo */
 .video-container {
     position: relative;
     width: 100%;
 }
 
-video {
+.video-container video {
     width: 100%;
     display: block;
 }
 
-.play-btn img{
-    width: 90px; /* Modifier la taille */
+.play-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
     position: absolute;
-    filter: invert(1);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
 }
-.prestation{
+
+.play-btn img {
+    width: 90px;
+    filter: invert(1);
+    transition: transform 0.3s ease;
+}
+
+.play-btn:hover img {
+    transform: scale(1.1);
+}
+
+/* Section Prestations */
+.prestation {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-content: center;
     gap: 60px;
 }
-.first-part{
+
+.first-part {
     display: flex;
     flex-direction: column;
     gap: 20px;
     text-align: center;
     align-items: center;
 }
-.first-part h2{
+
+.first-part h2 {
     font-size: 2.5rem;
-    font-family: "Parisienne";
-    font-weight: bold;
     color: #dd9d15;
     padding-bottom: 20px;
     border-bottom: 1px dashed #dd9d15;
     display: inline-block;
 }
-.first-part p{
+
+.first-part p {
     width: 40%;
+    margin-left: 0;
 }
-.cards{
+
+/* Cartes de service */
+.cards {
     display: flex;
     justify-content: center;
     gap: 40px;
 }
-.cards img{
-    width: 300px;
-    height: 200px;
-}
-.cards div{
+
+.cards div {
     display: flex;
     flex-direction: column;
     gap: 20px;
     text-align: center;
     align-items: center;
+    transition: transform 0.3s ease;
 }
-.cards div h4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.cards div:hover {
+    transform: translateY(-5px);
+}
+
+.cards img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les liens qui remplacent les h4 */
+.cards div a {
+    font-family: "Parisienne", cursive;
+    font-weight: bold;
     font-size: 1.5rem;
-    font-family: "Parisienne";
-    color: black;
-    padding-bottom: 20px;
+    color: #000;
+    padding-bottom: 10px;
     border-bottom: 1px dashed #dd9d15;
     display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.cards div a:hover {
+    color: #dd9d15;
+}
 
+/* Media Queries */
 /* Smartphones (petits écrans) */
 @media screen and (max-width: 575px) {
-    .hero{
+    .hero {
         height: 200px;
         margin-top: 50px;
     }
+    
     .hero h1 {
         font-size: 2.5rem;
         text-align: center;
     }
+    
     .hero a {
         font-size: 1rem;
         padding: 8px 40px;
     }
+    
     .bienvenue {
         flex-direction: column;
         text-align: center;
     }
-    .bienvenue div:first-child a {
-        margin-left: auto;
-        margin-right: auto;
+    
+    .bienvenue div:first-child h3 {
+        font-size: 2rem;
     }
+    
+    .bienvenue div:first-child a {
+        margin: 20px auto 0;
+    }
+    
+    .first-part p {
+        width: 100%;
+    }
+    
     .cards {
         flex-direction: column;
         align-items: center;
     }
+    
     .cards img {
         width: 250px;
         height: 150px;
+    }
+
+    .cards div a {
+        font-size: 1.3rem;
     }
 }
 
 /* Petites tablettes */
 @media screen and (min-width: 576px) and (max-width: 767px) {
-    .hero{
+    .hero {
         height: 300px;
     }
+    
     .hero h1 {
         font-size: 3rem;
     }
+    
     .hero a {
         font-size: 1.2rem;
         padding: 10px 50px;
     }
+    
+    .first-part p {
+        width: 80%;
+    }
+    
     .cards {
         flex-wrap: wrap;
         gap: 20px;
     }
+    
     .cards img {
         width: 280px;
         height: 180px;
@@ -239,20 +309,22 @@ video {
 
 /* Tablettes et petits ordinateurs */
 @media screen and (min-width: 768px) and (max-width: 1399px) {
-    .hero{
+    .hero {
         height: 400px;
     }
+    
     .hero h1 {
         font-size: 4rem;
     }
+    
+    .first-part p {
+        width: 60%;
+    }
+    
     .cards {
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
-    }
-    .cards img {
-        width: 300px;
-        height: 200px;
     }
 }
 
@@ -260,5 +332,10 @@ video {
 @media screen and (min-width: 1400px) {
     .hero h1 {
         font-size: 6rem;
+    }
+    
+    .container {
+        max-width: 1320px;
+        margin: 0 auto;
     }
 }

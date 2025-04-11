@@ -47,17 +47,19 @@
     </div>
     
     <div class="discover-button">
-        <a href="prestations.html" class="btn-discover">Découvrir toutes les prestations</a>
+        <a href="../index.php" class="btn-discover">Découvrir toutes les prestations</a>
     </div>
     
     <section class="packs">
         <h2>Harmonie</h2>
         <p>Célébrez votre événement comme vous l'avez toujours rêvé !</p>
+        <a href="/FarahEvent/Reservation/index.php">
         <div class="pack-buttons">
             <button class="btn-pack customize">Réserver maintenant
                 <i class="fa-regular fa-paper-plane"></i>
             </button>
         </div>
+        </a>
     </section>
     
     <?php include '../../footer.html'; ?>

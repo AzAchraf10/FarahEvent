@@ -36,16 +36,18 @@
         <img src="include/images/image6.jpg" class="category-salle2" alt="Salle 2">
     </div>
     <div class="discover-button">
-        <button onclick="window.location.href='prestations.html'" class="btn-discover">Découvrir toutes les prestations</button>
+        <button onclick="window.location.href='../index.php'" class="btn-discover">Découvrir toutes les prestations</button>
     </div>
     <section class="packs">
         <h2>Harmonie</h2>
         <p>Célébrez votre événement comme vous l'avez toujours rêvé !</p>
         <div class="pack-buttons">
-            <button class="btn-pack customize">
-                Réserver maintenant
-                <i class="fa-regular fa-paper-plane"></i>
-            </button>
+            <a href="/FarahEvent/Reservation/index.php">
+                <button class="btn-pack customize">
+                    Réserver maintenant
+                    <i class="fa-regular fa-paper-plane"></i>
+                </button>
+            </a>
         </div>
     </section>
     <?php include '../../footer.html'; ?>

@@ -155,6 +155,10 @@ body {
     color: white;
 }
 
+.packs a{
+    text-decoration: none;
+}
+
 .packs h2 {
     font-size: 40px;
     margin-bottom: 10px;
