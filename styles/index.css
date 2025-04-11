@@ -227,6 +227,274 @@ section {
     color: #dd9d15;
 }
 
+/* Section Témoignages */
+.temoignages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 20px;
+    gap: 60px;
+}
+
+.temoignages .first-part {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.temoignages .first-part h2 {
+    font-size: 2.5rem;
+    color: #dd9d15;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #dd9d15;
+    display: inline-block;
+    font-family: "Parisienne", cursive;
+}
+
+.temoignages .first-part p {
+    width: 40%;
+    margin-left: 0;
+    text-align: center;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.client-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.client-avatar:nth-child(1) {
+    background-color: #4c5d6e;
+}
+
+.client-avatar:nth-child(2) {
+    background-color: #5e4c6e;
+}
+
+.client-avatar:nth-child(3) {
+    background-color: #6e4c4c;
+}
+
+.client-avatar:nth-child(4) {
+    background-color: #4c6e56;
+}
+
+.client-avatar span {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.google-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.client-details {
+    text-align: left;
+}
+
+.client-details h4 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #777;
+    display: block;
+    margin-top: 3px;
+}
+
+.rating {
+    margin: 8px 0;
+}
+
+.star {
+    color: #dd9d15;
+    font-size: 1.2rem;
+}
+
+.testimonial-text {
+    text-align: left;
+    margin: 10px 0 0 0;
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.69);
+    line-height: 1.5;
+}
+
+/* Section Formulaire d'avis */
+.avis-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 20px;
+    gap: 50px;
+}
+
+.avis-client .first-part {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.avis-client .first-part h2 {
+    font-size: 2.5rem;
+    color: #dd9d15;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #dd9d15;
+    display: inline-block;
+    font-family: "Parisienne", cursive;
+}
+
+.avis-client .first-part p {
+    width: 40%;
+    margin-left: 0;
+    text-align: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #dd9d15;
+}
+
+.rating-select {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.rating-select input {
+    display: none;
+}
+
+.rating-select label {
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #ddd;
+    margin-right: 5px;
+    transition: color 0.2s ease;
+}
+
+.rating-select label:hover,
+.rating-select label:hover ~ label,
+.rating-select input:checked ~ label {
+    color: #dd9d15;
+}
+
+.submit-btn {
+    background-color: #dd9d15;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Parisienne", cursive;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+    margin: 15px auto 0;
+}
+
+.submit-btn:hover {
+    background-color: #c78c12;
+    transform: translateY(-2px);
+}
+
 /* Media Queries */
 /* Smartphones (petits écrans) */
 @media screen and (max-width: 575px) {
@@ -275,6 +543,34 @@ section {
     .cards div a {
         font-size: 1.3rem;
     }
+
+    .temoignages .first-part p,
+    .avis-client .first-part p {
+        width: 100%;
+    }
+    
+    .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+    
+    .rating-select label {
+        font-size: 1.5rem;
+    }
 }
 
 /* Petites tablettes */
@@ -305,6 +601,18 @@ section {
         width: 280px;
         height: 180px;
     }
+    .temoignages .first-part p,
+    .avis-client .first-part p {
+        width: 80%;
+    }
+    
+    .testimonial {
+        width: 250px;
+    }
+    
+    .form-container {
+        padding: 25px;
+    }
 }
 
 /* Tablettes et petits ordinateurs */
@@ -325,6 +633,10 @@ section {
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
+    }
+    .temoignages .first-part p,
+    .avis-client .first-part p {
+        width: 60%;
     }
 }
 

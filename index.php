@@ -60,6 +60,148 @@
             </div>
         </section>
     </main>
+    <!-- Ajoutez cette section avant la fermeture de la balise main -->
+
+<section class="temoignages">
+    <div class="first-part">
+        <h2>Témoignage</h2>
+        <p>Découvrez ce que nos clients pensent de nos services. Nous sommes fiers de créer des mariages inoubliables qui dépassent les attentes.</p>
+    </div>
+    <div class="testimonials-container">
+        <!-- Premier témoignage -->
+        <div class="testimonial">
+            <div class="client-info">
+                <div class="client-avatar">
+                    <span>Z</span>
+                    <img src="/FarahEvent/include/icons/google-icon.svg" alt="Google" class="google-icon">
+                </div>
+                <div class="client-details">
+                    <h4>Zineb Loukili</h4>
+                    <span class="date">2023-10-17</span>
+                </div>
+            </div>
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">Une salle spacieuse et très bien aménagée avec ascenseur et sur trois niveaux</p>
+        </div>
+
+        <!-- Deuxième témoignage -->
+        <div class="testimonial">
+            <div class="client-info">
+                <div class="client-avatar">
+                    <span>S</span>
+                    <img src="/FarahEvent/include/icons/google-icon.svg" alt="Google" class="google-icon">
+                </div>
+                <div class="client-details">
+                    <h4>salah tahir</h4>
+                    <span class="date">2023-10-15</span>
+                </div>
+            </div>
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">Muy buen sitio para celebrar bodas</p>
+        </div>
+
+        <!-- Troisième témoignage -->
+        <div class="testimonial">
+            <div class="client-info">
+                <div class="client-avatar">
+                    <span>Y</span>
+                    <img src="/FarahEvent/include/icons/google-icon.svg" alt="Google" class="google-icon">
+                </div>
+                <div class="client-details">
+                    <h4>YOUSSEF EL KHMYSY</h4>
+                    <span class="date">2023-10-09</span>
+                </div>
+            </div>
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">جميل جدا</p>
+        </div>
+
+        <!-- Quatrième témoignage -->
+        <div class="testimonial">
+            <div class="client-info">
+                <div class="client-avatar">
+                    <span>T</span>
+                    <img src="/FarahEvent/include/icons/google-icon.svg" alt="Google" class="google-icon">
+                </div>
+                <div class="client-details">
+                    <h4>Toutou Amine</h4>
+                    <span class="date">2023-09-16</span>
+                </div>
+            </div>
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">Une salle de fêtes spacieuse propre. Je le commande</p>
+        </div>
+    </div>
+</section>
+
+<section class="avis-client">
+    <div class="first-part">
+        <h2>Votre Avis</h2>
+        <p>Partagez votre expérience avec nous et aidez-nous à améliorer nos services pour les futurs mariés.</p>
+    </div>
+    <div class="form-container">
+        <form id="testimonial-form" action="/FarahEvent/submit_testimonial.php" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Votre note</label>
+                <div class="rating-select">
+                    <input type="radio" id="star5" name="rating" value="5" checked>
+                    <label for="star5" title="5 étoiles">★</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" title="4 étoiles">★</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" title="3 étoiles">★</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" title="2 étoiles">★</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" title="1 étoile">★</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Votre témoignage</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Envoyer votre avis</button>
+        </form>
+    </div>
+</section>
     
     <?php include 'footer.html'; ?>
     
