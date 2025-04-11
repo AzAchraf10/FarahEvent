@@ -17,6 +17,8 @@ footer {
     display: flex;
     flex: 1;
     justify-content: center;
+    max-width: 1200px;
+    margin: auto;
     margin-bottom: 30px;
 }
 
@@ -87,6 +89,7 @@ a:hover{
     text-align: center;
     font-size: 14px;
     border-top: 1px solid rgba(52, 52, 52, 0.8);
+    padding: 20px;
 }
 .footer-bottom p {
     color: rgb(255, 255, 255);
