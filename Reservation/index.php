@@ -197,17 +197,6 @@
             </form>
         </div>
     </section>
-    
-    <section class="packs">
-        <h2>Harmonie</h2>
-        <p>Célébrez votre événement comme vous l'avez toujours rêvé !</p>
-        <div class="pack-buttons">
-            <button class="btn-pack customize">Réserver maintenant
-                <i class="fa-regular fa-paper-plane"></i>
-            </button>
-        </div>
-    </section>
-    
     <?php include '../footer.html'; ?>
     
     <script>

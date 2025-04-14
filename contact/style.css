@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .first-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('images/background2.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 550px;
+        gap: 15px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .first-image::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+
+    .first-image h2 {
+        color: white;
+        font-family: "Parisienne", cursive;
+        font-size: 4.5rem;
+        font-weight: normal;
+        z-index: 2;
+    }
+
+    .first-image div {
+        color: white;
+        font-family: "Parisienne", cursive;
+        font-size: 2rem;
+        z-index: 2;
+    }
+
+
+    .contact-wrapper {
+        display: flex;
+        gap: 50px;
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 0 20px;
+    }
+
+  
+    .contact-form {
+        flex: 1;
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #D4AF37;
+        font-family: "Parisienne", cursive;
+        font-size: 1.8rem;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 15px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 35px;
+        font-size: 1.1rem;
+        font-family: "Poppins", sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #D4AF37;
+        outline: none;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    }
+
+
+    .map-container {
+        flex: 1;
+        height: 500px;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Bouton Envoyer */
+    .btn-envoyer {
+        background: #D4AF37;
+        color: white;
+        padding: 15px 50px;
+        border: none;
+        border-radius: 35px;
+        cursor: pointer;
+        font-family: "Parisienne", cursive;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .btn-envoyer:hover {
+        background: #B59430;
+        transform: translateY(-2px);
+    }
+
+    /* Section Packs */
+    .packs {
+        text-align: center;
+        padding: 80px 20px;
+        background: #fcf8cc;
+    }
+
+    .packs h2 {
+        font-family: "Parisienne", cursive;
+        font-size: 2.8rem;
+        color: #333;
+        margin-bottom: 30px;
+        line-height: 1.3;
+    }
+
+    .pack-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .btn-pack {
+        background: #D4AF37;
+        color: white;
+        padding: 18px 60px;
+        border: none;
+        border-radius: 35px;
+        cursor: pointer;
+        font-family: "Parisienne", cursive;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-pack:hover {
+        background: #B59430;
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .contact-wrapper {
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px auto;
+        }
+
+        .first-image h2 {
+            font-size: 3.5rem;
+        }
+
+        .first-image div {
+            font-size: 1.5rem;
+        }
+
+        .map-container {
+            height: 300px;
+        }
+
+        .packs h2 {
+            font-size: 2.2rem;
+        }
+
+        .btn-pack {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+        }
+    }
