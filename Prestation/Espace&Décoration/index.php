@@ -32,7 +32,7 @@
         <img src="include/images/image2.jpg" class="category-cristalle" alt="Salle Cristalle">
         <img src="include/images/image3.avif" class="category-cristalle" alt="Salle Cristalle">
         <img src="include/images/image4.jpg" class="category-salle1" alt="Salle 1">
-        <img src="include/images/image5.jpg" class="category-cristalle" alt="Salle Cristalle">
+        <img src="include/images/image 5.jpg" class="category-cristalle" alt="Salle Cristalle">
         <img src="include/images/image6.jpg" class="category-salle2" alt="Salle 2">
     </div>
     <div class="discover-button">
