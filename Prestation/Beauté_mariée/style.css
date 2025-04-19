@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('include/images/image9.jpg');
+    background-image: url('include/pictures/bg3.jpg');
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -27,7 +27,7 @@ body {
 }
 
 .image-container h2 {
-    color: black;
+    color: #ffffff;
     font-size: 90px;
     font-family: "Parisienne", cursive;
     font-weight: 400;
@@ -36,7 +36,7 @@ body {
 }
 
 .image-container div {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 40px;
     font-family: "Parisienne", cursive;
     font-weight: 400;

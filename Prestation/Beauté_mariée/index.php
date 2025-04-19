@@ -33,17 +33,27 @@
     </div>
     
     <div class="gallery">
-        <img src="include/images/image1.jpg" alt="Hanaa" class="category-Hanaa">
-        <img src="include/images/image2.jpg" alt="Amaria" class="category-Amaria">
-        <img src="include/images/image3.jpg" alt="Hanaa" class="category-Hanaa">
-        <img src="include/images/image4.jpg" alt="Hanaa" class="category-Hanaa">
-        <img src="include/images/image5.jpg" alt="Amaria" class="category-Amaria">
-        <img src="include/images/image6.jpg" alt="Amaria" class="category-Amaria">
-        <img src="include/images/image7.jpg" alt="Hanaa" class="category-Hanaa">
-        <img src="include/images/image8.jpg" alt="Nggafa" class="category-Nggafa">
-        <img src="include/images/image12.webp" alt="Nggafa" class="category-Nggafa">
-        <img src="include/images/image10.png" alt="Dfouaa" class="category-Dfouaa">
-        <img src="include/images/image11.png" alt="Dfouaa" class="category-Dfouaa">
+        <img src="include/pictures/hanna1.jpg" alt="Hanaa" class="category-Hanaa">
+        <img src="include/pictures/hanna2.jpeg" alt="Hanaa" class="category-Hanaa">
+        <img src="include/pictures/hanna3.jpg" alt="Hanaa" class="category-Hanaa">
+        <img src="include/pictures/hanna4.jpg" alt="Hanaa" class="category-Hanaa">
+        <img src="include/pictures/hanna5.jpg" alt="Hanaa" class="category-Hanaa">
+        <img src="include/pictures/amaria1.jpg" alt="Amaria" class="category-Amaria">
+        <img src="include/pictures/amaria2.jpg" alt="Amaria" class="category-Amaria">
+        <img src="include/pictures/amaria3.jpg" alt="Amaria" class="category-Amaria">
+        <img src="include/pictures/amaria4.jpg" alt="Amaria" class="category-Amaria">
+        <img src="include/pictures/amaria5.jpg" alt="Amaria" class="category-Amaria">
+        <img src="include/pictures/amaria6.jpg" alt="Amaria" class="category-Amaria">
+        <img src="include/pictures/dfouaa1.jpg" alt="Dfouaa" class="category-Dfouaa">
+        <img src="include/pictures/dfouaa2.jpg" alt="Dfouaa" class="category-Dfouaa">
+        <img src="include/pictures/dfouaa3.jpg" alt="Dfouaa" class="category-Dfouaa">
+        <img src="include/pictures/dfouaa4.jpg" alt="Dfouaa" class="category-Dfouaa">
+        <img src="include/pictures/dfouaa4.png" alt="Dfouaa" class="category-Dfouaa">
+        <img src="include/pictures/neggafa1.jpg" alt="Nggafa" class="category-Nggafa">
+        <img src="include/pictures/neggafa2.jpg" alt="Nggafa" class="category-Nggafa">
+        <img src="include/pictures/neggafa3.jpg" alt="Nggafa" class="category-Nggafa">
+        <img src="include/pictures/neggafa4.jpg" alt="Nggafa" class="category-Nggafa">
+        <img src="include/pictures/neggafa5.jpg" alt="Nggafa" class="category-Nggafa">
     </div>
     
     <div class="discover-button">
