@@ -26,7 +26,7 @@
                 <h2>Bienvenue</h2>
                 <h3>Découvrez l'expérience DreamEvents</h3>
                 <p>À la recherche d'une équipe exceptionnelle pour créer le mariage de vos rêves ? Notre agence Dream Events, située au cœur de Oujda, vous propose un service sur mesure, professionnel et chaleureux. Laissez-nous vous accompagner dans la réalisation d'un événement inoubliable pour célébrer votre amour.</p>
-                <a href="/FarahEvent/apropos.php">Lire plus</a>
+                <a href="/FarahEvent/Propos/index.php">Lire plus</a>
             </div>
             <div class="video-container">
                 <video id="weddingVideo" poster="/FarahEvent/include/images/img1.webp">
