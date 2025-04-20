@@ -1,289 +1,253 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* Reset et base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-color: #b98b14;
+  --primary-hover: #a0780f;
+  --background-color: #fff8ee;
+  --section-bg: #fefaf1;
+  --text-color: #333;
+  --transition-standard: all 0.3s ease;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
+  font-family: 'Georgia', serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.6;
 }
 
-.image-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url('include/pictures/bg3.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 550px;
-    gap: 15px;
-    font-weight: bold;
-    text-align: center;
+/* Header et Hero */
+.hero {
+  height: 90vh;
+  background: url('include/pictures/bg8.jpg') center/cover no-repeat;
+  padding: 60px 20px 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.image-container h2 {
-    color: #ffffff;
-    font-size: 90px;
-    font-family: "Parisienne", cursive;
-    font-weight: 400;
-    font-style: normal;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+.logo h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(40px, 8vw, 70px);
+  margin: 0;
+  color: var(--primary-color);
+  padding-top: 70px;
 }
 
-.image-container div {
-    color: rgb(255, 255, 255);
-    font-size: 40px;
-    font-family: "Parisienne", cursive;
-    font-weight: 400;
-    font-style: normal;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+.logo p {
+  font-family: 'Allura', cursive;
+  font-size: clamp(24px, 5vw, 35px);
+  margin: 10px 0;
+  padding-top: 20px;
 }
 
-.espace {
-    text-align: center;
-    padding: 50px 20px;
-    background-image: url('include/images/image.jpeg');
-    background-size: cover;
-    background-position: center;
-    font-family: "Parisienne", cursive;
-    font-weight: 400;
-    font-style: normal;
+/* Introduction */
+.intro {
+  margin: 40px 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.content {
-    max-width: 500px;
-    margin: auto;
-    font-size: 24px;
-    font-family: "Parisienne", cursive;
-    font-weight: 400;
-    font-style: normal;
+.intro h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(36px, 6vw, 50px);
+  margin-bottom: 20px;
+  color: var(--primary-color);
 }
 
-.filter-buttons {
-    padding: 15px;
-    text-align: center;
-    margin-bottom: 10px;
+.intro p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.nav-btn {
-    background-color: #9ba21a;
-    color: white;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    font-size: 16px;
+/* Navigation des catégories */
+.nav-buttons {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.nav-btn:hover {
-    background-color: #868c15;
-    transform: translateY(-2px);
+.nav-buttons button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-standard);
+  margin: 8px;
 }
 
-.nav-btn.active {
-    background-color: #d39e00;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.nav-buttons button.active {
+  outline: 3px solid #89c6ff;
+  font-weight: bold;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    padding: 20px;
+.nav-buttons button.active::after {
+  content: "✔";
+  margin-left: 10px;
+  font-size: 18px;
 }
 
-.gallery img {
-    flex: 1 1 250px;
-    max-width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.nav-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+/* Groupes d'images */
+.image-group {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  margin: 20px auto;
+  max-width: 1200px;
 }
 
-.discover-button {
-    padding: 15px;
-    text-align: center;
-    margin: 10px 0;
+.image-group.show {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 1;
 }
 
-.btn-discover {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    margin: 10px;
-    font-family: 'Parisienne', cursive;
-    font-weight: 400;
-    font-style: normal;
-    text-decoration: none;
-    display: inline-block;
+.image-group img {
+  width: 150px;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.btn-discover:hover {
-    transform: scale(1.05);
-    background-color: #333;
+.image-group img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.packs {
-    text-align: center;
-    margin-top: 50px;
-    padding: 30px;
-    color: white;
+/* Section */
+.section {
+  background-color: var(--section-bg);
+  font-family: 'Cormorant Garamond', serif;
+  padding: 100px 20px;
+  position: relative;
+  margin-top: 50px;
 }
 
-.packs a{
-    text-decoration: none;
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-.packs h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-    color: #73772e;
-    font-family: "Parisienne", cursive;
-    font-weight: 400;
-    font-style: normal;
-    background-image: url('include/images/image.jpeg');
-    background-size: contain;
-    background-position: center;
-    padding: 15px 0;
+.section p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+  font-style: italic;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.4;
 }
 
-.packs p {
-    font-size: 35px;
-    color: rgb(57, 56, 56);
-    margin-bottom: 20px;
-    font-family: "Parisienne", cursive;
-    font-weight: 400;
-    font-style: normal;
-    margin-top: 15px;
-    background-image: url('include/images/image.jpeg');
-    background-size: contain;
-    background-position: center;
-    padding: 15px 0;
+/* Boutons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 30px 0;
 }
 
-.pack-buttons {
-    display: flex;
-    justify-content: center;
-    background-image: url('include/images/image.jpeg');
-    background-size: cover;
-    background-position: center;
-    padding: 20px 0;
+.btn {
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  transition: var(--transition-standard);
+  text-decoration: none;
+  color: inherit;
 }
 
-.btn-pack {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.btn-gold {
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
-.btn-pack:hover {
-    background-color: black;
-    transform: scale(1.05);
+.btn-gold:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.customize {
-    background: #9d740d;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Parisienne', cursive;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 10px;
-    font-size: 18px;
+/* WhatsApp Button */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 100;
 }
 
-.customize:hover {
-    background: #8a650b;
-    transform: scale(1.05);
+.whatsapp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro,
+.section,
+.image-group.show {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .pack-buttons {
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    
-    .gallery img {
-        flex: 1 1 200px;
-        max-width: 100%;
-    }
-    
-    .packs h2 {
-        font-size: 32px;
-    }
-    
-    .packs p {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-container {
-        height: 300px;
-        gap: 10px;
-    }
-    
-    .image-container h2 {
-        font-size: 40px;
-        line-height: 1.2;
-    }
-    
-    .image-container div {
-        font-size: 20px;
-        text-align: center;
-    }
-    
-    .filter-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .nav-btn {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-    
-    .packs h2 {
-        font-size: 28px;
-    }
-    
-    .packs p {
-        font-size: 22px;
-    }
+  .hero {
+    height: 70vh;
+  }
+  
+  .buttons {
+    gap: 15px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
 }
