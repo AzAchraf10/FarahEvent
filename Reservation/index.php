@@ -57,6 +57,12 @@
                             <input type="date" id="date_fin" name="date_fin" required>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre_tables">Nombre de tables : <span class="required-indicator">*</span></label>
+                            <input type="number" id="nombre_tables" name="nombre_tables" min="1" placeholder="10" required>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="form-section">

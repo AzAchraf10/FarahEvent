@@ -114,6 +114,12 @@
                             <input type="date" id="date_fin" name="date_fin" required>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre_tables">Nombre de tables :</label>
+                            <input type="number" id="nombre_tables" name="nombre_tables" min="1" placeholder="10" required>
+                        </div>
+                    </div>
                 </div>
               
                 <div class="form-section">
@@ -529,6 +535,7 @@
                 ${event.nom ? `<p><strong>Nom:</strong> ${event.nom} ${event.prenom || ''}</p>` : ''}
                 ${event.telephone ? `<p><strong>Téléphone:</strong> ${event.telephone}</p>` : ''}
                 ${event.adresse ? `<p><strong>Adresse:</strong> ${event.adresse}</p>` : ''}
+                ${event.nombre_tables ? `<p><strong>Nombre de tables:</strong> ${event.nombre_tables}</p>` : ''}
                 ${event.message ? `<p><strong>Message:</strong> ${event.message}</p>` : ''}
             </div>
         `;
@@ -570,6 +577,7 @@
         if (event.prenom) document.getElementById('prenom').value = event.prenom;
         if (event.telephone) document.getElementById('telephone').value = event.telephone;
         if (event.adresse) document.getElementById('adresse').value = event.adresse;
+        if (event.nombre_tables) document.getElementById('nombre_tables').value = event.nombre_tables;
         
         // Dates
         document.getElementById('date_debut').value = event.date;
@@ -631,6 +639,9 @@
             prenom: document.getElementById('prenom').value,
             telephone: document.getElementById('telephone').value,
             adresse: document.getElementById('adresse').value,
+            
+            // Nombre de tables
+            nombre_tables: document.getElementById('nombre_tables').value,
             
             // Date de fin
             date_fin: document.getElementById('date_fin').value,
