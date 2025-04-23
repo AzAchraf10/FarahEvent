@@ -12,7 +12,7 @@
     <div class="main-content">
     <header>
         <div class="container header-content">
-            <h1 class="dashboard-title">Tableau de bord Admin</h1>
+            <h1 class="dashboard-title">&nbsp;&nbsp;&nbsp;Tableau de bord Admin</h1>
         </div>
     </header>
 
@@ -28,22 +28,22 @@
             <div class="card stat-card">
                 <div class="icon">📅</div>
                 <p>Total Événements</p>
-                <h3>124</h3>
+                <h3 id="total-events">124</h3>
             </div>
             <div class="card stat-card">
                 <div class="icon">✓</div>
                 <p>Événements Actifs</p>
-                <h3>86</h3>
+                <h3 id="active-events">86</h3>
             </div>
             <div class="card stat-card">
                 <div class="icon">⏱️</div>
                 <p>En attente</p>
-                <h3>28</h3>
+                <h3 id="pending-events">28</h3>
             </div>
             <div class="card stat-card">
                 <div class="icon">👥</div>
                 <p>Participants</p>
-                <h3>1,240</h3>
+                <h3 id="total-participants">1,240</h3>
             </div>
         </div>
 
@@ -272,7 +272,6 @@
     </div>
     </div>
 </div>
-<script src="js/sidebar.js"></script>
 <script>
     // Données exemple pour les événements
     let events = [
@@ -340,7 +339,21 @@
     document.addEventListener('DOMContentLoaded', () => {
         renderEvents();
         setupEventListeners();
+        updateStats();
     });
+    
+    // Mise à jour des statistiques
+    function updateStats() {
+        const totalEvents = events.length;
+        const activeEvents = events.filter(e => e.status === 'published').length;
+        const pendingEvents = events.filter(e => e.status === 'draft').length;
+        const totalParticipants = totalEvents * 150; // Estimation simple
+        
+        document.getElementById('total-events').textContent = totalEvents;
+        document.getElementById('active-events').textContent = activeEvents;
+        document.getElementById('pending-events').textContent = pendingEvents;
+        document.getElementById('total-participants').textContent = totalParticipants.toLocaleString();
+    }
     
     // Configuration des écouteurs d'événements
     function setupEventListeners() {
@@ -358,6 +371,26 @@
                     closeViewEventModal();
                 }
             });
+        });
+        
+        // Fermeture des modales en cliquant à l'extérieur
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                closeEventModal();
+                closeViewEventModal();
+            }
+        });
+        
+        // Validation des dates
+        const dateDebut = document.getElementById('date_debut');
+        const dateFin = document.getElementById('date_fin');
+        
+        dateDebut.addEventListener('change', () => {
+            // Assurer que la date de fin n'est pas antérieure à la date de début
+            if (dateFin.value && dateFin.value < dateDebut.value) {
+                dateFin.value = dateDebut.value;
+            }
+            dateFin.min = dateDebut.value;
         });
     }
     
@@ -387,7 +420,7 @@
                 <td>${getCategoryName(event.category)}</td>
                 <td><span class="status-badge ${event.status}">${getStatusName(event.status)}</span></td>
                 <td class="actions-cell">
-                    <button class="btn-view" data-id="${event.id}">View</button>
+                    <button class="btn-view" data-id="${event.id}">Voir</button>
                     <button class="btn-edit" data-id="${event.id}">Éditer</button>
                     <button class="btn-delete" data-id="${event.id}" disabled>Supprimer</button>
                 </td>
@@ -404,11 +437,7 @@
             btn.addEventListener('click', () => openEditEventModal(parseInt(btn.dataset.id)));
         });
         
-        // Le bouton supprimer n'a plus d'écouteur d'événement ici
-        // La ligne suivante a été supprimée:
-        // document.querySelectorAll('.btn-delete').forEach(btn => {
-        //     btn.addEventListener('click', () => deleteEvent(parseInt(btn.dataset.id)));
-        // });
+        // Le bouton supprimer est désactivé, donc pas d'écouteur nécessaire
         
         renderPagination(eventsToRender.length);
     }
@@ -473,7 +502,8 @@
             event.category.toLowerCase().includes(searchTerm) ||
             formatDate(event.date).toLowerCase().includes(searchTerm) ||
             (event.nom && event.nom.toLowerCase().includes(searchTerm)) ||
-            (event.prenom && event.prenom.toLowerCase().includes(searchTerm))
+            (event.prenom && event.prenom.toLowerCase().includes(searchTerm)) ||
+            (event.telephone && event.telephone.toLowerCase().includes(searchTerm))
         );
         
         // Réinitialiser la pagination lors d'une recherche
@@ -516,6 +546,12 @@
         modalTitle.textContent = 'Ajouter un événement';
         eventForm.reset();
         document.getElementById('event-id').value = '';
+        
+        // Définir la date minimale pour les dates
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date_debut').min = today;
+        document.getElementById('date_fin').min = today;
+        
         eventModal.style.display = 'flex';
     }
     
@@ -557,12 +593,12 @@
         eventModal.style.display = 'flex';
     }
     
-    // Supprimer un événement (fonction conservée mais jamais appelée)
+    // Supprimer un événement (fonction conservée mais jamais appelée car boutons désactivés)
     function deleteEvent(id) {
-        // Cette fonction existe toujours mais n'est jamais appelée
         if (confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) {
             events = events.filter(event => event.id !== id);
             renderEvents();
+            updateStats();
             alert('Événement supprimé avec succès!');
         }
     }
@@ -581,7 +617,7 @@
             // Récupération des valeurs du formulaire
             title: "Mariage", // Titre par défaut ou autre logique selon vos besoins
             date: document.getElementById('date_debut').value,
-            time: event && event.time ? event.time : "20:00", // Conserver l'heure existante ou utiliser une valeur par défaut
+            time: eventId ? events.find(e => e.id === parseInt(eventId)).time || "20:00" : "20:00", // Conserver l'heure existante ou utiliser une valeur par défaut
             
             // Trouver quelle salle est sélectionnée
             category: Array.from(document.querySelectorAll('input[name="espace[]"]:checked'))
@@ -600,7 +636,16 @@
             date_fin: document.getElementById('date_fin').value,
             
             // Message
-            message: document.getElementById('message').value
+            message: document.getElementById('message').value,
+            
+            // Options sélectionnées
+            options: {
+                accueil: Array.from(document.querySelectorAll('input[name="accueil[]"]:checked')).map(cb => cb.value),
+                cocktail: Array.from(document.querySelectorAll('input[name="cocktail[]"]:checked')).map(cb => cb.value),
+                diner: Array.from(document.querySelectorAll('input[name="diner[]"]:checked')).map(cb => cb.value),
+                soiree: Array.from(document.querySelectorAll('input[name="soiree[]"]:checked')).map(cb => cb.value),
+                piece_montee: document.querySelector('input[name="piece_montee"]:checked')?.value || 'non'
+            }
         };
         
         if (eventId) {
@@ -622,6 +667,7 @@
         }
         
         closeEventModal();
+        updateStats();
         renderEvents();
         
         // Feedback pour l'utilisateur
@@ -630,6 +676,7 @@
     
     // Utilitaires
     function formatDate(dateString) {
+        if (!dateString) return '';
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         return new Date(dateString).toLocaleDateString('fr-FR', options);
     }
