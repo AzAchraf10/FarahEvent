@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="admin-container">
-    <?php include '../dashboard.php'; ?>
+    <?php include '../dashboard.html'; ?>
     <div class="main-content">
     <header>
         <div class="container header-content">

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background"></div>
+    <div class="background-animation" id="particles"></div>
+    
+    <!-- Geometric Shapes -->
+    <div class="shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <div class="login-container">
+            <div class="login-form">
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur</label>
+                        <div class="input-group">
+                            <input type="text" id="username" name="username" placeholder="Entrez votre identifiant" required>
+                            <span class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                            <span class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span class="checkmark"></span>
+                            <span>Se souvenir de moi</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="login-button" id="loginButton">
+                        <div class="button-text">
+                            <span>Connexion</span>
+                            <span class="button-icon"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <span>Connexion en cours...</span>
+                        </div>
+                        <div class="success-checkmark">
+                            <div class="check-icon"></div>
+                        </div>
+                    </button>
+                    
+                    <div class="error-message" id="errorMessage">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Identifiants incorrects. Veuillez réessayer.
+                    </div>
+                
+                    <div class="login-footer">
+                        Vous n'avez pas de compte? <a href="#">Contactez l'administrateur</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
