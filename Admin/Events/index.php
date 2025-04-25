@@ -15,38 +15,12 @@
             <h1 class="dashboard-title">&nbsp;&nbsp;&nbsp;Tableau de bord Admin</h1>
         </div>
     </header>
-
-    <div class="container">
         <div class="dashboard-actions">
             <div class="search-bar">
                 <input type="text" id="search-events" placeholder="Rechercher un événement...">
             </div>
             <button id="add-event-btn">+ Ajouter un événement</button>
         </div>
-        <!-- Stats Cards -->
-        <div class="stats-cards">
-            <div class="card stat-card">
-                <div class="icon">📅</div>
-                <p>Total Événements</p>
-                <h3 id="total-events">124</h3>
-            </div>
-            <div class="card stat-card">
-                <div class="icon">✓</div>
-                <p>Événements Actifs</p>
-                <h3 id="active-events">86</h3>
-            </div>
-            <div class="card stat-card">
-                <div class="icon">⏱️</div>
-                <p>En attente</p>
-                <h3 id="pending-events">28</h3>
-            </div>
-            <div class="card stat-card">
-                <div class="icon">👥</div>
-                <p>Participants</p>
-                <h3 id="total-participants">1,240</h3>
-            </div>
-        </div>
-
         <table class="events-table">
             <thead>
                 <tr>
@@ -126,17 +100,17 @@
                     <h3>Choix de l'Espace:</h3>
                     <div class="salles">
                         <label class="salle-option">
-                            <input type="checkbox" name="espace[]" value="salle1">
+                            <input type="radio" name="espace" value="salle1">
                             <img src="images/salle1.jpg" alt="Salle 1">
                             <span class="salle-label">Salle 1</span>
                         </label>
                         <label class="salle-option">
-                            <input type="checkbox" name="espace[]" value="salle2">
+                            <input type="radio" name="espace" value="salle2">
                             <img src="images/salle2.jpg" alt="Salle 2">
                             <span class="salle-label">Salle 2</span>
                         </label>
                         <label class="salle-option">
-                            <input type="checkbox" name="espace[]" value="salle3">
+                            <input type="radio" name="espace" value="salle3">
                             <img src="images/salle3.jpg" alt="Salle 3">
                             <span class="salle-label">Salle 3</span>
                         </label>
@@ -245,7 +219,7 @@
                                 <input type="radio" name="piece_montee" value="oui">Oui
                             </label>
                             <label class="radio-item">
-                                <input type="radio" name="piece_montee" value="non">Non
+                                <input type="radio" name="piece_montee" value="non" checked>Non
                             </label>
                         </div>
                     </div>
@@ -589,9 +563,9 @@
         }
         
         // Sélectionner la salle appropriée
-        const salleCheckboxes = document.querySelectorAll('input[name="espace[]"]');
-        salleCheckboxes.forEach(checkbox => {
-            checkbox.checked = checkbox.value === event.category;
+        const salleRadios = document.querySelectorAll('input[name="espace"]');
+        salleRadios.forEach(radio => {
+            radio.checked = radio.value === event.category;
         });
         
         // Message (s'il existe)
@@ -599,16 +573,6 @@
         
         // Afficher la modale
         eventModal.style.display = 'flex';
-    }
-    
-    // Supprimer un événement (fonction conservée mais jamais appelée car boutons désactivés)
-    function deleteEvent(id) {
-        if (confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) {
-            events = events.filter(event => event.id !== id);
-            renderEvents();
-            updateStats();
-            alert('Événement supprimé avec succès!');
-        }
     }
     
     // Fermer la modale d'événement
@@ -628,8 +592,7 @@
             time: eventId ? events.find(e => e.id === parseInt(eventId)).time || "20:00" : "20:00", // Conserver l'heure existante ou utiliser une valeur par défaut
             
             // Trouver quelle salle est sélectionnée
-            category: Array.from(document.querySelectorAll('input[name="espace[]"]:checked'))
-                .map(cb => cb.value)[0] || 'salle1', // Prendre la première salle sélectionnée ou 'salle1' par défaut
+            category: document.querySelector('input[name="espace"]:checked')?.value || 'salle1',
                 
             // Autres données
             status: eventId ? events.find(e => e.id === parseInt(eventId)).status : 'draft',

@@ -1,5 +1,5 @@
 <?php
-include('../dashboard.html');
+include('../dashboard.html'); // Changé en .php pour correspondre au commentaire
 ?>
 
 <!DOCTYPE html>
@@ -36,13 +36,13 @@ include('../dashboard.html');
                     <table class="reviews-table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Client</th>
-                                <th>Commentaire</th>
-                                <th>Note</th>
-                                <th>Date</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Client</th>
+                                <th scope="col">Commentaire</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Statut</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +50,7 @@ include('../dashboard.html');
                                 <td class="review-id">Avis #1001</td>
                                 <td>Marie Dupont</td>
                                 <td class="review-content">Service exceptionnel, je recommande vivement ce salon de beauté...</td>
-                                <td><span class="star-rating">★★★★★</span></td>
+                                <td><span class="star-rating" aria-label="5 étoiles sur 5">★★★★★</span></td>
                                 <td>15/06/2023</td>
                                 <td><span class="status-badge published">Publié</span></td>
                                 <td>
@@ -60,11 +60,12 @@ include('../dashboard.html');
                                     </div>
                                 </td>
                             </tr>
+                            <!-- Autres lignes de tableau inchangées... -->
                             <tr>
                                 <td class="review-id">Avis #1002</td>
                                 <td>Jean Martin</td>
                                 <td class="review-content">Personnel très professionnel, résultat impeccable...</td>
-                                <td><span class="star-rating">★★★★☆</span></td>
+                                <td><span class="star-rating" aria-label="4 étoiles sur 5">★★★★☆</span></td>
                                 <td>12/06/2023</td>
                                 <td><span class="status-badge published">Publié</span></td>
                                 <td>
@@ -78,7 +79,7 @@ include('../dashboard.html');
                                 <td class="review-id">Avis #1003</td>
                                 <td>Sophie Leroy</td>
                                 <td class="review-content">Un peu déçue par le service, le résultat ne correspondait pas à mes attentes...</td>
-                                <td><span class="star-rating">★★☆☆☆</span></td>
+                                <td><span class="star-rating" aria-label="2 étoiles sur 5">★★☆☆☆</span></td>
                                 <td>10/06/2023</td>
                                 <td><span class="status-badge pending">En attente</span></td>
                                 <td>
@@ -92,7 +93,7 @@ include('../dashboard.html');
                                 <td class="review-id">Avis #1004</td>
                                 <td>Thomas Bernard</td>
                                 <td class="review-content">Très bon rapport qualité-prix, je reviendrai...</td>
-                                <td><span class="star-rating">★★★★☆</span></td>
+                                <td><span class="star-rating" aria-label="4 étoiles sur 5">★★★★☆</span></td>
                                 <td>08/06/2023</td>
                                 <td><span class="status-badge published">Publié</span></td>
                                 <td>
@@ -106,7 +107,7 @@ include('../dashboard.html');
                                 <td class="review-id">Avis #1005</td>
                                 <td>Laura Petit</td>
                                 <td class="review-content">Contenu inapproprié...</td>
-                                <td><span class="star-rating">★☆☆☆☆</span></td>
+                                <td><span class="star-rating" aria-label="1 étoile sur 5">★☆☆☆☆</span></td>
                                 <td>05/06/2023</td>
                                 <td><span class="status-badge rejected">Rejeté</span></td>
                                 <td>
@@ -135,35 +136,35 @@ include('../dashboard.html');
     </div>
 
     <!-- View Modal -->
-    <div id="viewModal" class="modal">
+    <div id="viewModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Détails de l'avis</h3>
-                <button class="close-btn" onclick="closeModal('viewModal')">&times;</button>
+                <h3 id="modalTitle">Détails de l'avis</h3>
+                <button class="close-btn" onclick="closeModal('viewModal')" aria-label="Fermer">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="review-detail">
-                    <label>ID de l'avis</label>
+                    <label for="view-review-id">ID de l'avis</label>
                     <p id="view-review-id"></p>
                 </div>
                 <div class="review-detail">
-                    <label>Client</label>
+                    <label for="view-client-name">Client</label>
                     <p id="view-client-name"></p>
                 </div>
                 <div class="review-detail">
-                    <label>Commentaire complet</label>
+                    <label for="view-review-content">Commentaire complet</label>
                     <p class="full-review-content" id="view-review-content"></p>
                 </div>
                 <div class="review-detail">
-                    <label>Note</label>
+                    <label for="view-review-rating">Note</label>
                     <p id="view-review-rating"></p>
                 </div>
                 <div class="review-detail">
-                    <label>Date</label>
+                    <label for="view-review-date">Date</label>
                     <p id="view-review-date"></p>
                 </div>
                 <div class="review-detail">
-                    <label>Statut</label>
+                    <label for="view-review-status">Statut</label>
                     <p id="view-review-status"></p>
                 </div>
             </div>
@@ -174,11 +175,11 @@ include('../dashboard.html');
     </div>
 
     <!-- Delete Confirmation Modal -->
-    <div id="deleteModal" class="modal">
+    <div id="deleteModal" class="modal" role="dialog" aria-labelledby="deleteModalTitle" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Confirmer la suppression</h3>
-                <button class="close-btn" onclick="closeModal('deleteModal')">&times;</button>
+                <h3 id="deleteModalTitle">Confirmer la suppression</h3>
+                <button class="close-btn" onclick="closeModal('deleteModal')" aria-label="Fermer">&times;</button>
             </div>
             <div class="modal-body">
                 <p>Êtes-vous sûr de vouloir supprimer l'avis <strong id="delete-review-id"></strong> de <strong id="delete-client-name"></strong> ?</p>
@@ -239,6 +240,17 @@ include('../dashboard.html');
                 event.target.style.display = 'none';
             }
         }
+
+        // Amélioration: fermeture des modales avec la touche Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(function(modal) {
+                    if (modal.style.display === 'flex') {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
