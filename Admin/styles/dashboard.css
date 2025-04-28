@@ -1,25 +1,24 @@
-/* admin-styles.css - Styles pour la barre latérale */
+/* admin-styles.css - Styles pour la barre latérale et le modal */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
-
 body {
     background-color: #f8f9fa;
     color: #495057;
 }
-
+body.modal-open {
+    overflow: hidden;
+}
 .admin-container {
     display: flex;
     min-height: 100vh;
     position: relative;
 }
-
 /* Sidebar Styles */
 .sidebar {
     background: linear-gradient(to bottom, #1a237e, #3949ab);
@@ -33,8 +32,9 @@ body {
     left: 0;
     top: 0;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
-
 .sidebar-header {
     font-size: 24px;
     font-weight: 600;
@@ -44,26 +44,22 @@ body {
     display: flex;
     align-items: center;
 }
-
 .sidebar-header i {
     margin-right: 10px;
     font-size: 22px;
 }
-
 .sidebar-menu {
     list-style: none;
+    flex-grow: 1;
 }
-
 .sidebar-menu li {
     margin: 8px 0;
     transition: all 0.3s;
     border-radius: 8px;
 }
-
 .sidebar-menu li:hover {
     background-color: rgba(255,255,255,0.1);
 }
-
 .sidebar-menu a {
     color: rgba(255,255,255,0.8);
     text-decoration: none;
@@ -73,25 +69,257 @@ body {
     padding: 12px 15px;
     transition: all 0.3s;
 }
-
 .sidebar-menu a:hover {
     color: white;
 }
-
 .sidebar-menu a i {
     margin-right: 12px;
     font-size: 18px;
     width: 20px;
     text-align: center;
 }
-
 .sidebar-menu li.active {
     background-color: rgba(255,255,255,0.2);
 }
-
 .sidebar-menu li.active a {
     color: white;
     font-weight: 500;
+}
+
+/* Nouvelles styles pour le profil admin */
+.admin-profile {
+    margin-top: auto;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.admin-profile:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+.admin-info {
+    margin-left: 12px;
+    flex-grow: 1;
+}
+.admin-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+.admin-role {
+    display: block;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+}
+.profile-settings {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+.admin-profile:hover .profile-settings {
+    transform: rotate(30deg);
+}
+
+/* Lien de déconnexion */
+.logout-link {
+    margin-top: 15px;
+    padding: 12px 15px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.logout-link a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.logout-link a:hover {
+    color: white;
+}
+.logout-link i {
+    margin-right: 10px;
+}
+
+/* Styles pour le modal (formulaire) */
+.profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+.profile-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+.modal-container {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translateY(30px);
+    transition: transform 0.3s;
+    z-index: 2001;
+}
+.profile-modal.active .modal-container {
+    transform: translateY(0);
+}
+.modal-header {
+    background-color: #1a237e;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.modal-body {
+    padding: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #495057;
+    font-weight: 500;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    background-color: white;
+    color: #495057;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: #3949ab;
+    box-shadow: 0 0 0 3px rgba(57, 73, 171, 0.1);
+}
+.form-group input::placeholder {
+    color: #adb5bd;
+}
+
+/* Personnalisation pour l'upload de photo */
+.photo-upload {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#photoPreview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+    margin-right: 20px;
+}
+#profilePhoto {
+    display: none;
+}
+.upload-btn {
+    padding: 8px 15px;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+.upload-btn i {
+    margin-right: 8px;
+}
+.upload-btn:hover {
+    background-color: #dee2e6;
+}
+
+/* Boutons du formulaire */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+    gap: 10px;
+}
+.btn-save, .btn-cancel {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-save {
+    background-color: #1a237e;
+    color: white;
+}
+.btn-save:hover {
+    background-color: #151c60;
+}
+.btn-cancel {
+    background-color: #e9ecef;
+    color: #495057;
+}
+.btn-cancel:hover {
+    background-color: #dee2e6;
 }
 
 .sidebar-toggle {
@@ -109,7 +337,6 @@ body {
     cursor: pointer;
     box-shadow: 3px 0 10px rgba(0,0,0,0.1);
 }
-
 /* Main Content Wrapper */
 .main-content {
     flex: 1;
@@ -117,7 +344,6 @@ body {
     padding: 25px;
     transition: all 0.3s ease;
 }
-
 /* Responsive Styles */
 @media screen and (max-width: 992px) {
     .sidebar {
@@ -127,7 +353,6 @@ body {
         margin-left: 220px;
     }
 }
-
 @media screen and (max-width: 768px) {
     .sidebar {
         width: 70px;
@@ -136,22 +361,27 @@ body {
     .sidebar-header {
         justify-content: center;
     }
-    .sidebar-title, .sidebar-menu a span {
+    .sidebar-title, .sidebar-menu a span, .logout-link a span {
         display: none;
     }
-    .sidebar-menu a {
+    .sidebar-menu a, .logout-link a {
         padding: 12px 0;
         justify-content: center;
     }
-    .sidebar-menu a i {
+    .sidebar-menu a i, .logout-link a i {
         margin-right: 0;
         font-size: 20px;
     }
     .main-content {
         margin-left: 70px;
     }
+    .admin-info, .profile-settings {
+        display: none;
+    }
+    .admin-profile, .logout-link {
+        justify-content: center;
+    }
 }
-
 @media screen and (max-width: 576px) {
     .sidebar {
         transform: translateX(-100%);
@@ -163,15 +393,18 @@ body {
     .sidebar-toggle {
         display: block;
     }
-    .sidebar.active .sidebar-title, 
-    .sidebar.active .sidebar-menu a span {
+    .sidebar.active .sidebar-title,
+    .sidebar.active .sidebar-menu a span,
+    .sidebar.active .logout-link a span {
         display: inline-block;
     }
-    .sidebar.active .sidebar-menu a {
+    .sidebar.active .sidebar-menu a,
+    .sidebar.active .logout-link a {
         padding: 12px 15px;
         justify-content: flex-start;
     }
-    .sidebar.active .sidebar-menu a i {
+    .sidebar.active .sidebar-menu a i,
+    .sidebar.active .logout-link a i {
         margin-right: 12px;
     }
     .sidebar-header {
@@ -183,5 +416,14 @@ body {
     .sidebar.active + .main-content {
         opacity: 0.7;
         pointer-events: none;
+    }
+    .admin-info, .profile-settings {
+        display: block;
+    }
+    .admin-profile, .logout-link {
+        justify-content: flex-start;
+    }
+    .modal-container {
+        width: 95%;
     }
 }

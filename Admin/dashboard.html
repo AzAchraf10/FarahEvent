@@ -1,71 +1,160 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/FarahEvent/Admin/styles/dashboard.css">
-        <title>Dashboard</title>
-    </head>
-    <body>
-            <!-- sidebar.php - Fichier à inclure dans les autres pages -->
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <i class="fas fa-shield-alt"></i>
-                <span class="sidebar-title">Admin Panel</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/FarahEvent/Admin/styles/dashboard.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- sidebar.php - Fichier à inclure dans les autres pages -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-shield-alt"></i>
+            <span class="sidebar-title">Admin Panel</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="/FarahEvent/Admin/Home/index.php"><i class="fas fa-tachometer-alt"></i> <span>Home</span></a>
+            </li>
+            <li>
+                <a href="/FarahEvent/Admin/Comptes/index.php"><i class="fas fa-user-circle"></i> <span>Comptes</span></a>
+            </li>
+            <li>
+                <a href="/FarahEvent/Admin/Events/index.php"><i class="fas fa-calendar-alt"></i> <span>Evénements</span></a>
+            </li>
+            <li>
+                <a href="/FarahEvent/Admin/Avis/index.php"><i class="fas fa-star"></i> <span>Avis Clients</span></a>
+            </li>
+        </ul>
+        
+        <!-- Profil Admin en bas de la sidebar -->
+        <div class="admin-profile" id="adminProfile">
+            <img src="" alt="Photo" class="admin-avatar">
+            <div class="admin-info">
+                <span class="admin-name">Admin Name</span>
+                <span class="admin-role">Administrateur</span>
             </div>
-            <ul class="sidebar-menu">
-                <li>
-                    <a href="/FarahEvent/Admin/Home/index.php"><i class="fas fa-tachometer-alt"></i> <span>Home</span></a>
-                </li>
-                <li>
-                    <a href="/FarahEvent/Admin/Comptes/index.php"><i class="fas fa-user-circle"></i> <span>Comptes</span></a>
-                </li>
-                <li>
-                    <a href="/FarahEvent/Admin/Events/index.php"><i class="fas fa-calendar-alt"></i> <span>Evénements</span></a>
-                </li>
-                <li>
-                    <a href="/FarahEvent/Admin/Avis/index.php"><i class="fas fa-star"></i> <span>Avis Clients</span></a>
-                </li>
-                <li>
-                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Se Déconnecter</span></a>
-                </li>
-            </ul>
-            <div class="sidebar-toggle">
-                <i class="fas fa-bars"></i>
+            <i class="fas fa-cog profile-settings"></i>
+        </div>
+        
+        <!-- Lien de déconnexion en bas de la sidebar -->
+        <div class="logout-link">
+            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Se Déconnecter</span></a>
+        </div>
+        
+        <div class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    
+    <!-- Formulaire Modal (popup) pour modifier le profil -->
+    <div class="profile-modal" id="profileModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Modifier votre profil</h3>
+                <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form action="update-profile.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="profileName">Nom</label>
+                        <input type="text" id="profileName" name="name" placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" name="email" placeholder="Votre email">
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePassword">Mot de passe</label>
+                        <input type="password" id="profilePassword" name="password" placeholder="Laisser vide pour ne pas changer">
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhoto">Photo</label>
+                        <div class="photo-upload">
+                            <img src="/FarahEvent/Admin/assets/profile-placeholder.jpg" alt="Aperçu" id="photoPreview">
+                            <input type="file" id="profilePhoto" name="photo" accept="image/*">
+                            <label for="profilePhoto" class="upload-btn"><i class="fas fa-camera"></i> Changer</label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">Enregistrer</button>
+                        <button type="button" class="btn-cancel" id="cancelModal">Annuler</button>
+                    </div>
+                </form>
             </div>
         </div>
-
-        <script>
-                    // sidebar.js - Script pour la fonctionnalité de la barre latérale
-            document.addEventListener('DOMContentLoaded', function() {
-                const sidebarToggle = document.querySelector('.sidebar-toggle');
-                const sidebar = document.querySelector('.sidebar');
-                
-                if (sidebarToggle) {
-                    sidebarToggle.addEventListener('click', function() {
-                        sidebar.classList.toggle('active');
-                    });
-                }
-                
-                // Fermer la sidebar quand on clique ailleurs sur mobile
-                document.addEventListener('click', function(event) {
-                    if (window.innerWidth <= 576) {
-                        const isClickInsideSidebar = sidebar.contains(event.target);
-                        const isClickOnToggle = sidebarToggle.contains(event.target);
-                        
-                        if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
-                            sidebar.classList.remove('active');
-                        }
-                    }
+    </div>
+    
+    <script>
+        // sidebar.js - Script pour la fonctionnalité de la barre latérale
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('active');
                 });
-                
-                // Ajuster en cas de redimensionnement
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth > 576 && sidebar.classList.contains('active')) {
+            }
+            
+            // Fermer la sidebar quand on clique ailleurs sur mobile
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 576) {
+                    const isClickInsideSidebar = sidebar.contains(event.target);
+                    const isClickOnToggle = sidebarToggle.contains(event.target);
+                    
+                    if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
                         sidebar.classList.remove('active');
                     }
-                });
+                }
             });
-        </script>
-    </body>
-    </html>
+            
+            // Ajuster en cas de redimensionnement
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 576 && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+            
+            // Modal pour le profil
+            const adminProfile = document.getElementById('adminProfile');
+            const profileModal = document.getElementById('profileModal');
+            const closeModal = document.getElementById('closeModal');
+            const cancelModal = document.getElementById('cancelModal');
+            const modalOverlay = document.querySelector('.modal-overlay');
+            
+            // Ouvrir le modal
+            adminProfile.addEventListener('click', function() {
+                profileModal.classList.add('active');
+                document.body.classList.add('modal-open');
+            });
+            
+            // Fermer le modal (plusieurs façons)
+            function closeProfileModal() {
+                profileModal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+            
+            closeModal.addEventListener('click', closeProfileModal);
+            cancelModal.addEventListener('click', closeProfileModal);
+            modalOverlay.addEventListener('click', closeProfileModal);
+            
+            // Aperçu de la photo
+            const photoInput = document.getElementById('profilePhoto');
+            const photoPreview = document.getElementById('photoPreview');
+            
+            photoInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        photoPreview.src = e.target.result;
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
