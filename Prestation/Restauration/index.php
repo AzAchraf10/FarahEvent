@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../styles/footer.css"> 
 </head>
 <body>
-    <?php include '../../nav.html'; ?>
+    <?php include '../../nav.php'; ?>
     <div class="image-container">
         <div>Succombez à notre menu raffiné et surprenez vos événements</div>
         <h2>Restauration</h2>

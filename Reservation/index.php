@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <?php include '../nav.html'; ?>
+    <?php include '../nav.php'; ?>
     <div class="image-container">
         <div>Créons ensemble des événements qui resteront gravés dans vos mémoires.</div>
         <h2>Réservation</h2>

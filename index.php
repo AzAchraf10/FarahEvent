@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/FarahEvent/styles/fonts.css">
 </head>
 <body>
-    <?php include 'nav.html'; ?>
+    <?php include 'nav.php'; ?>
     
     <header class="hero">
         <video autoplay muted loop playsinline>

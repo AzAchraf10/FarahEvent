@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <?php include '../../nav.html'; ?>
+  <?php include '../../nav.php'; ?>
   
   <header class="hero">
     <div class="logo">

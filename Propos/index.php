@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php include '../nav.html'; ?>
+<?php include '../nav.php'; ?>
     <!-- Hero Section -->
     <div class="top">
         <div class="container">

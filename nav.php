@@ -24,7 +24,7 @@
         <div class="nav-links right">
             <a href="/FarahEvent/Propos/index.php">A Propos</a>
             <a href="/FarahEvent/contact/index.php">Contactez-Nous</a>
-            <a href="/FarahEvent/login.html">Se Connectez</a>
+            <a href="/FarahEvent/Connexion/login.php">Se Connectez</a>
         </div>
         
         <!-- Liens regroupés pour version mobile -->

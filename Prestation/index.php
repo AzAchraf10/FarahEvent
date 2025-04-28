@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/FarahEvent/styles/fonts.css">
 </head>
 <body>
-    <?php include '../nav.html'; ?>
+    <?php include '../nav.php'; ?>
     <div class="first-image">
         <h5>Créons ensemble des événements qui resteront gravés dans vos mémoires.</h5>
         <h2>Prestation</h2>

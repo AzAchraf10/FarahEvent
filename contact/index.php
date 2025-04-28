@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/FarahEvent/styles/fonts.css">
 </head>
 <body>
-    <?php include '../nav.html'; ?>
+    <?php include '../nav.php'; ?>
     <div class="first-image">
         <div>le début d'une belle histoire</div>
         <h2>Contactez-Nous</h2>
