@@ -39,10 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'azizicharaf10@gmail.com'; // votre adresse Gmail
-        $mail->Password   = 'smsz gzjz rhzu ycpo'; // utilisez un mot de passe d'application Gmail
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
+        $mail->Password   = 'oegi xztn gyhc jkav '; // utilisez un mot de passe d'application Gmail
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
         $mail->CharSet    = 'UTF-8';
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true,
+            ],
+        ];
 
         // Destinataires
         $mail->setFrom($email, $prenom . ' ' . $nom);

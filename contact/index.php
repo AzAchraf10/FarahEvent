@@ -1,3 +1,7 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['user_id']); // ou autre variable de session que tu utilises
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -72,5 +76,16 @@
         </div>
     </section>
     <?php include '../footer.html'; ?>
+    <script>
+        const isLoggedIn = <?php echo json_encode($isLoggedIn); ?>;
+
+        document.querySelector('.contact-form').addEventListener('submit', function(event) {
+            if (!isLoggedIn) {
+                event.preventDefault(); // Empêche l'envoi du formulaire
+                window.location.href = '../Connexion/login.php'; // Redirige vers la page de connexion
+            }
+        });
+    </script>
+
 </body>
 </html>

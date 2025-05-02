@@ -65,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span>Entrez vos informations personnelles</span>
             <input type="text" placeholder="Nom" name="name" required />
             <input type="text" placeholder="Prénom" name="prenom" required />
+            <input type="tel" placeholder="Tél" name="tel" required />
             <input type="email" placeholder="Email" name="email" required />
             <input type="password" placeholder="Mot de passe" name="password" required />
             <button type="submit">S'inscrire</button>
