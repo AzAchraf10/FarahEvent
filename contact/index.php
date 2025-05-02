@@ -16,7 +16,6 @@
 
     <div class="contact-wrapper">
     <form class="contact-form" action="contact.php" method="POST">
-            
             <div class="form-group">
                 <label>Nom :</label>
                 <input name="nom" type="text" required>
@@ -40,8 +39,8 @@
             <div class="form-group">
                 <label>Objet :</label>
                 <select name="objet" required>
-                    <option value=""  >Problème</option>
-                    <option value="" selected>Question</option>
+                    <option value="Problème">Problème</option>
+                    <option value="Question" selected>Question</option>
                 </select>
             </div>
 
