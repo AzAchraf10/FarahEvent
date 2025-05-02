@@ -1,118 +1,85 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beauté de la Mariée</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Cormorant+Garamond:ital@1&family=Dancing+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauté de la mariée</title>
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-  <?php include '../../nav.php'; ?>
-  
-  <header class="hero">
-    <div class="logo">
-      <p>Éclat et élégance pour une beauté inoubliable.</p>
-      <h1>Beauté de la mariée</h1>
+<?php include '../../nav.php'; ?>
+    <div class="image-container">
+        <div>Éclat et élégance pour une beauté inoubliable.</div>
+        <h2>Beauté de la mariée</h2>
     </div>
-  </header>
-
-  <main>
-    <section class="intro">
-      <h2>Sublimez-vous le Jour J</h2>
-      <p>
-        Découvrez nos prestations dédiées à la dfouaa, à l'amaria, au maquillage et à la neggafa pour un mariage exceptionnel.
-        Faites-vous choyer par nos experts !
-      </p>
+    <div class="Espace ">
+        <div class="content">
+            <p>Sublimez-vous le Jour J</p>
+        </div>
+    </div>
+    <div style="padding: 15px; text-align: center;">
+        <button onclick="filterImages('all',this)" class="nav-btn">Accueil</button>
+        <button onclick="filterImages('Hanaa',this)" class="nav-btn">Hanaa</button>
+        <button onclick="filterImages('Amaria',this)" class="nav-btn">Amaria</button>
+        <button onclick="filterImages('Dfouaa',this)" class="nav-btn">Dfouaa</button>
+        <button onclick="filterImages('Nggafa',this)" class="nav-btn">Nggafa</button>
+    </div>
+    <div class="gallery">
+        <img src="include/image/amaria1.jpg" class="category-Amaria">
+        <img src="include/image/amaria2.jpg" class="category-Amaria">
+        <img src="include/image/amaria3.jpg" class="category-Amaria">
+        <img src="include/image/amaria4.jpg" class="category-Amaria">
+        <img src="include/image/amaria5.jpg" class="category-Amaria">
+        <img src="include/image/amaria6.jpg" class="category-Amaria">
+        <img src="include/image/image1.jpg" class="category-Hanaa">
+        <img src="include/image/hanna1.jpg" class="category-Hanaa">
+        <img src="include/image/hanna2.jpeg" class="category-Hanaa">
+        <img src="include/image/hanna3.jpg" class="category-Hanaa">
+        <img src="include/image/hanna4.jpg" class="category-Hanaa">
+        <img src="include/image/hanna5.jpg" class="category-Hanaa">
+        <img src="include/image/neggafa1.jpg" class="category-Nggafa">
+        <img src="include/image/neggafa2.jpg" class="category-Nggafa">
+        <img src="include/image/neggafa3.jpg" class="category-Nggafa">
+        <img src="include/image/neggafa4.jpg" class="category-Nggafa">
+        <img src="include/image/neggafa5.jpg" class="category-Nggafa">
+        <img src="include/image/dfouaa1.jpg" class="category-Dfouaa">
+        <img src="include/image/dfouaa2.jpg" class="category-Dfouaa">
+        <img src="include/image/dfouaa3.jpg" class="category-Dfouaa">
+        <img src="include/image/dfouaa4.jpg" class="category-Dfouaa">
+       
+    </div>
+    <div style="padding: 15px; text-align: center;">
+        <button onclick="window.location.href='../index.php'"style=" background-color: black; color: white; border: none; padding: 10px 20px;cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px; transition: 0.3s; margin: 10px; font-family: 'Parisienne', cursive;   font-weight: 400; font-style: normal;"onmouseover="this.style.transform='scale(1.09)'" onmouseout="this.style.transform='scale(1)'">Découvrir toutes les prestations</button>
+    </div>
+    <section class="packs">
+        <h2> Harmonie</h2>
+        <p>Célébrez votre événement comme vous l'avez toujours rêvé !</p>
+        <div class="pack-buttons">
+            <a href="../../Reservation/index.php"><button class="btn-pack customize" >Réserver Dés maintenant
+                <i class="fa-regular fa-paper-plane"></i>
+            </button></a>
+        </div>
     </section>
-
-    <nav class="nav-buttons">
-      <button class="active" data-group="hanaa">Hanaa</button>
-      <button data-group="amaria">Amaria</button>
-      <button data-group="dfouaa">Dfouaa</button>
-      <button data-group="neggafa">Neggafa</button>
-    </nav>
-
-    <div id="hanaa" class="image-group show">
-      <img src="include/pictures/hanna1.jpg" alt="Hanaa 1" loading="lazy">
-      <img src="include/pictures/hanna2.jpeg" alt="Hanaa 2" loading="lazy">
-      <img src="include/pictures/hanna3.jpg" alt="Hanaa 3" loading="lazy">
-      <img src="include/pictures/hanna4.jpg" alt="Hanaa 4" loading="lazy">
-      <img src="include/pictures/hanna5.jpg" alt="Hanaa 5" loading="lazy">
-    </div>
-
-    <div id="amaria" class="image-group">
-      <img src="include/pictures/amaria1.jpg" alt="Amaria 1" loading="lazy">
-      <img src="include/pictures/amaria2.jpg" alt="Amaria 2" loading="lazy">
-      <img src="include/pictures/amaria3.jpg" alt="Amaria 3" loading="lazy">
-      <img src="include/pictures/amaria6.jpg" alt="Amaria 6" loading="lazy">
-    </div>
-
-    <div id="dfouaa" class="image-group">
-      <img src="include/pictures/dfouaa1.jpg" alt="Dfouaa 1" loading="lazy">
-      <img src="include/pictures/dfouaa2.jpg" alt="Dfouaa 2" loading="lazy">
-      <img src="include/pictures/dfouaa3.jpg" alt="Dfouaa 3" loading="lazy">
-      <img src="include/pictures/dfouaa4.png" alt="Dfouaa 4" loading="lazy">
-    </div>
-
-    <div id="neggafa" class="image-group">
-      <img src="include/pictures/neggafa1.jpg" alt="Neggafa 1" loading="lazy">
-      <img src="include/pictures/neggafa2.jpg" alt="Neggafa 2" loading="lazy">
-      <img src="include/pictures/neggafa3.jpg" alt="Neggafa 3" loading="lazy">
-      <img src="include/pictures/neggafa4.jpg" alt="Neggafa 4" loading="lazy">
-      <img src="include/pictures/neggafa5.jpg" alt="Neggafa 5" loading="lazy">
-    </div><br>
-    <br>
-    <div class="buttons">
-      <a href="../index.php" class="btn btn-gold">Découvrir tous les prestations</a>
-    </div>
-
-    <div class="section">
-      <h2>Harmonie</h2>
-      <p>Célébrez votre événement comme vous l'avez toujours rêvé !</p>
-
-      <div class="buttons">
-        <a href="../../Reservation/index.php" class="btn btn-gold">Réserver maintenant</a>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const buttons = document.querySelectorAll('.nav-buttons button');
-      
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Masquer tous les groupes d'images
-          const groups = document.querySelectorAll('.image-group');
-          groups.forEach(group => {
-            group.classList.remove('show');
-            setTimeout(() => {
-              group.style.display = 'none';
-            }, 300);
-          });
-          
-          // Afficher le groupe sélectionné
-          const groupId = button.getAttribute('data-group');
-          const selectedGroup = document.getElementById(groupId);
-          if (selectedGroup) {
-            setTimeout(() => {
-              selectedGroup.style.display = 'flex';
-              selectedGroup.classList.add('show');
-            }, 300);
-          }
-          
-          // Mettre à jour l'état actif du bouton
-          buttons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-        });
-      });
-      
-      // Initialiser l'état par défaut au chargement
-      document.getElementById('hanaa').style.display = 'flex';
-    });
-  </script>
-
-  <?php include '../../footer.html'; ?>
+    <?php include '../../footer.html'; ?>
+    <script>
+function filterImages(category, clickedBtn) {
+const images = document.getElementsByTagName('img');
+for (let img of images) {
+if (category === 'all') {
+img.style.display = 'block';
+} else {
+if (img.classList.contains('category-' + category)) {
+img.style.display = 'block';
+} else {
+img.style.display = 'none';
+}
+}
+}     
+const buttons = document.querySelectorAll('.nav-btn');
+buttons.forEach(btn => btn.classList.remove('active')); // n7aydou active men koulchi
+clickedBtn.classList.add('active'); // nzidouha ghi 3la dak li tclicka 3lih
+}    
+</script> 
 </body>
 </html>

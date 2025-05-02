@@ -31,12 +31,7 @@ session_start();
                 <!-- Menu utilisateur connecté -->
                 <div class="user-menu">
                     <div class="user-profile">
-                        <?php
-                        $photoPath = "../uploads/users/" . $_SESSION['user_id'] . ".jpg";
-                        $defaultPhoto = "../include/images/default_user.png";
-                        $photoSrc = file_exists($photoPath) ? $photoPath : $defaultPhoto;
-                        ?>
-                        <img src="<?php echo $photoSrc; ?>" alt="Photo de profil" class="user-avatar">
+                        <img src="" alt="" class="user-avatar">
                         <span><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     </div>
                     <div class="user-dropdown">
@@ -68,7 +63,7 @@ session_start();
                 <!-- Menu utilisateur pour mobile -->
                 <div class="user-menu-mobile">
                     <div class="user-profile-mobile">
-                        <img src="<?php echo $photoSrc; ?>" alt="Photo de profil" class="user-avatar">
+                        <img src="<?php echo $photoSrc; ?>" alt="" class="user-avatar">
                         <span><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     </div>
                     <a href="#" class="dropdown-item" id="edit-profile-mobile">
@@ -106,14 +101,6 @@ session_start();
                     $user = null;
                 }
                 ?>
-                
-                <div class="photo-upload">
-                    <img src="<?php echo $photoSrc; ?>" alt="Photo de profil" class="photo-preview" id="photoPreview">
-                    <div>
-                        <label for="profile_photo">Changer ma photo</label>
-                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*">
-                    </div>
-                </div>
                 
                 <div class="form-group">
                     <label for="name">Nom</label>

@@ -15,7 +15,7 @@
     </div>
 
     <div class="contact-wrapper">
-        <form class="contact-form">
+    <form class="contact-form" action="contact.php" method="POST">
             
             <div class="form-group">
                 <label>Nom :</label>

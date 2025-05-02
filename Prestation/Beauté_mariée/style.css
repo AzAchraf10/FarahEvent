@@ -1,233 +1,158 @@
-/* Reset et base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
-
-:root {
-  --primary-color: #b98b14;
-  --primary-hover: #a0780f;
-  --background-color: #fff8ee;
-  --section-bg: #fefaf1;
-  --text-color: #333;
-  --transition-standard: all 0.3s ease;
+.image-container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-image: url('include/image/bg8.jpg');
+background-size: cover;
+background-position: center;
+position: relative;
+width: 100%;
+height: 550px;
+background-size: cover;
+gap: 15px;
+font-weight: bold;
 }
-
-body {
-  font-family: 'Georgia', serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  text-align: center;
-  line-height: 1.6;
+.image-container h2 {
+color: aliceblue;
+font-size: 90px;
+font-family: "Parisienne", cursive;
+font-weight: 400;
+font-style: normal;
 }
-
-/* Header et Hero */
-.hero {
-  height: 90vh;
-  background: url('include/pictures/bg8.jpg') center/cover no-repeat;
-  padding: 60px 20px 40px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.image-container div {
+color: aliceblue;
+font-size: 40px;
+font-family: "Parisienne", cursive;
+font-weight: 400;
+font-style: normal;
 }
-
-.logo h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(40px, 8vw, 70px);
-  margin: 0;
-  color: var(--primary-color);
-  padding-top: 70px;
+.Espace {
+text-align: center;
+padding: 50px 20px;
+background-image: url('include/image/image.jpeg');
+font-family: "Parisienne", cursive;
+font-weight: 400;
+font-style: normal;
 }
-
-.logo p {
-  font-family: 'Allura', cursive;
-  font-size: clamp(24px, 5vw, 35px);
-  margin: 10px 0;
-  padding-top: 20px;
+.content {
+ max-width: 500px;
+margin: auto;
+font-size: 24px;
+font-family: "Parisienne", cursive;
+font-weight: 400;
+font-style: normal;
 }
-
-/* Introduction */
-.intro {
-  margin: 40px 20px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+.gallery {
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+justify-content: center;
+padding: 20px;
 }
-
-.intro h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(36px, 6vw, 50px);
-  margin-bottom: 20px;
-  color: var(--primary-color);
+.gallery img {
+flex: 1 1 250px;
+max-width: 300px;
+height: 200px;
+object-fit: cover;
+border-radius: 5px;
+cursor: pointer;
+transition: transform 0.2s ease;
 }
-
-.intro p {
-  font-size: 18px;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
+.nav-btn {
+background-color: #9ba21a ;
+color: white ;
+padding: 10px 20px ;
+margin: 5px;
+border: none;
+cursor: pointer ;
+border-radius: 5px;
+transition: background-color 0.3s;
 }
-
-/* Navigation des catégories */
-.nav-buttons {
-  margin: 30px 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
+.nav-btn.active {
+background-color: #d39e00;
+color: white;
+font-weight: bold;
 }
-
-.nav-buttons button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-family: 'Dancing Script', cursive;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: var(--transition-standard);
-  margin: 8px;
+.packs {
+text-align: center;
+margin-top: 50px;
+padding: 30px;
+color: white; 
 }
-
-.nav-buttons button.active {
-  outline: 3px solid #89c6ff;
-  font-weight: bold;
+.packs h2 {
+font-size: 40px;
+margin-bottom: 10px;
+justify-content: center;
+color: #73772e;
+font-family: "Parisienne", cursive;
+font-weight: 400;
+font-style: normal;
+background-image: url('include/image/image.jpeg');
 }
-
-.nav-buttons button.active::after {
-  content: "✔";
-  margin-left: 10px;
-  font-size: 18px;
+.packs p {
+font-size: 35px;
+color: rgb(57, 56, 56);
+margin-bottom: 20px;
+font-family: "Parisienne", cursive;
+font-weight: 400;
+font-style: normal;
+margin-top: 15px;
+background-image: url('include/image/image.jpeg');
+} 
+.pack-buttons {
+display: flex;
+justify-content: center;
+gap: 500px;
+background-image: url('include/image/image.jpeg');  
 }
-
-.nav-buttons button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.btn-pack {
+background-color: #333;
+color: white;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
 }
-
-/* Groupes d'images */
-.image-group {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  margin: 20px auto;
-  max-width: 1200px;
-}
-
-.image-group.show {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  opacity: 1;
-}
-
-.image-group img {
-  width: 150px;
-  margin: 10px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.image-group img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Section */
-.section {
-  background-color: var(--section-bg);
-  font-family: 'Cormorant Garamond', serif;
-  padding: 100px 20px;
-  position: relative;
-  margin-top: 50px;
-}
-
-.section h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.section p {
-  font-family: 'Dancing Script', cursive;
-  font-size: 48px;
-  font-style: italic;
-  max-width: 900px;
-  margin: 0 auto 40px;
-  line-height: 1.4;
-}
-
-/* Boutons */
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin: 30px 0;
-}
-
-.btn {
-  font-family: 'Dancing Script', cursive;
-  font-size: 20px;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  transition: var(--transition-standard);
+.btn-pack:hover {
+background-color: black;
+transform: scale(1.09);
+}   
+.customize {
+background: #9d740d;
+color: white;
+padding: 12px 25px;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: 'Parisienne', cursive;
+display: flex;
+align-items: center;
+gap: 10px;
+margin: 10px;
+}  
+a{
   text-decoration: none;
-  color: inherit;
 }
-
-.btn-gold {
-  background-color: var(--primary-color);
-  color: #fff;
+@media (max-width: 480px) {
+.image-container {
+height: 300px; 
+ gap: 10px; 
 }
-
-.btn-gold:hover {
-  background-color: var(--primary-hover);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.image-container h2 {
+font-size: 40px;
+line-height: 1.2; 
 }
-
-/* Animations */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.image-container div {
+font-size: 20px;
+text-align: center;
 }
-
-.intro,
-.section,
-.image-group.show {
-  animation: fadeInUp 1s ease-in-out;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .hero {
-    height: 70vh;
-  }
-  
-  .buttons {
-    gap: 15px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    font-size: 18px;
-  }
 }
