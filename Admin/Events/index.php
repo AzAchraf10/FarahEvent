@@ -10,11 +10,11 @@
 <div class="admin-container">
     <?php include '../dashboard.html'; ?>
     <div class="main-content">
-    <header>
-        <div class="container header-content">
-            <h1 class="dashboard-title">&nbsp;&nbsp;&nbsp;Tableau de bord Admin</h1>
-        </div>
-    </header>
+        <header>
+            <div class="container header-content">
+                <h1 class="dashboard-title">&nbsp;&nbsp;&nbsp;Tableau de bord Admin</h1>
+            </div>
+        </header>
         <div class="dashboard-actions">
             <div class="search-bar">
                 <input type="text" id="search-events" placeholder="Rechercher un événement...">
@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody id="events-list">
-                <!-- Événements injectés par JavaScript -->
+                <!-- Événements chargés via AJAX -->
             </tbody>
         </table>
 
@@ -48,30 +48,52 @@
                 <h2 id="modal-title">Ajouter un événement</h2>
                 <span class="close-modal">&times;</span>
             </div>
-             <!-- Insertion du formulaire de réservation ici -->
-             <form id="event-form" class="reservation-form">
+            <form id="event-form" class="reservation-form">
                 <input type="hidden" id="event-id">
+                
+                <div class="form-section">
+                    <h3>Informations de base:</h3>
+                    <div class="form-group">
+                        <label for="titre">Titre de l'événement :</label>
+                        <input type="text" id="titre" name="titre" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date_debut">Date de début :</label>
+                            <input type="date" id="date_debut" name="date_debut" required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="date_fin">Date de fin :</label>
+                            <input type="date" id="date_fin" name="date_fin" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="etat">Statut :</label>
+                        <select id="etat" name="etat" required>
+                            <option value="planifié">Planifié</option>
+                            <option value="confirmé">Confirmé</option>
+                            <option value="annulé">Annulé</option>
+                            <option value="terminé">Terminé</option>
+                        </select>
+                    </div>
+                </div>
                 
                 <div class="form-section">
                     <h3>Informations Personnelles:</h3>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="nom">Nom : </label>
-                            <input type="text" id="nom" name="nom" placeholder="Doe" required>
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" placeholder="Doe">
                         </div>
                         <div class="form-group">
                             <label for="prenom">Prénom :</label>
-                            <input type="text" id="prenom" name="prenom" placeholder="John" required>
+                            <input type="text" id="prenom" name="prenom" placeholder="John">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="telephone">Téléphone : </label>
-                            <input type="tel" id="telephone" name="telephone" placeholder="+212 600 000 000" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="adresse">Adresse : </label>
-                            <input type="text" id="adresse" name="adresse" placeholder="123 Rue Principale" required>
+                            <label for="telephone">Téléphone :</label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="+212 600 000 000">
                         </div>
                     </div>
                 </div>
@@ -80,18 +102,8 @@
                     <h3>Détails de la Réservation:</h3>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="date_debut">Date de début :</label>
-                            <input type="date" id="date_debut" name="date_debut" required> 
-                        </div>
-                        <div class="form-group">
-                            <label for="date_fin">Date de fin : </label>
-                            <input type="date" id="date_fin" name="date_fin" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
                             <label for="nombre_tables">Nombre de tables :</label>
-                            <input type="number" id="nombre_tables" name="nombre_tables" min="1" placeholder="10" required>
+                            <input type="number" id="nombre_tables" name="nombre_tables" min="1" placeholder="10">
                         </div>
                     </div>
                 </div>
@@ -100,7 +112,7 @@
                     <h3>Choix de l'Espace:</h3>
                     <div class="salles">
                         <label class="salle-option">
-                            <input type="radio" name="espace" value="salle1">
+                            <input type="radio" name="espace" value="salle1" required>
                             <img src="images/salle1.jpg" alt="Salle 1">
                             <span class="salle-label">Salle 1</span>
                         </label>
@@ -133,7 +145,7 @@
                 </div>
                 
                 <div class="form-section CocktailRéception-section">
-                    <h4 class="special-font">CocktailRéception:</h4>
+                    <h4 class="special-font">Cocktail Réception:</h4>
                     <div class="checkbox-group">
                         <label class="checkbox-item">
                             <input type="checkbox" name="cocktail[]" value="noga">Noga
@@ -213,7 +225,7 @@
                 <div class="form-section">
                     <h3>Options Supplémentaires:</h3>
                     <div class="form-group">
-                        <label>Piéce montée Américain :</label>
+                        <label>Pièce montée Américain :</label>
                         <div class="radio-group">
                             <label class="radio-item">
                                 <input type="radio" name="piece_montee" value="oui">Oui
@@ -232,7 +244,7 @@
                 
                 <div class="form-actions">
                     <button type="button" id="cancel-event" class="btn-pack">Annuler</button>
-                    <button type="submit" id="save-event" class="btn-reserver">Enregistrer l'evenement</button>
+                    <button type="submit" id="save-event" class="btn-reserver">Enregistrer l'événement</button>
                 </div>
             </form>
         </div>
@@ -250,429 +262,482 @@
             </div>
         </div>
     </div>
-    </div>
 </div>
+
 <script>
-    // Données exemple pour les événements
-    let events = [
-        {
-            id: 1,
-            title: "Mariage",
-            date: "2025-05-15",
-            time: "20:00",
-            category: "salle1",
-            status: "published"
-        },
-        {
-            id: 2,
-            title: "Mariage",
-            date: "2025-06-20",
-            time: "22:00",
-            category: "salle2",
-            status: "published"
-        },
-        {
-            id: 3,
-            title: "Mariage",
-            date: "2025-07-05",
-            time: "22:30",
-            category: "salle3",
-            status: "draft"
-        },
-        {
-            id: 4,
-            title: "Mariage",
-            date: "2025-06-20",
-            time: "23:00",
-            category: "salle2",
-            status: "draft"
-        },
-        {
-            id: 5,
-            title: "Mariage",
-            date: "2025-09-25",
-            time: "19:30",
-            category: "salle1",
-            status: "cancelled"
+// Variables globales
+let events = [];
+let currentPage = 1;
+const itemsPerPage = 10;
+
+// Éléments DOM
+const eventsList = document.getElementById('events-list');
+const pagination = document.getElementById('pagination');
+const eventModal = document.getElementById('event-modal');
+const viewEventModal = document.getElementById('view-event-modal');
+const eventForm = document.getElementById('event-form');
+const modalTitle = document.getElementById('modal-title');
+const searchInput = document.getElementById('search-events');
+const addEventBtn = document.getElementById('add-event-btn');
+const cancelEventBtn = document.getElementById('cancel-event');
+const closeModalBtns = document.querySelectorAll('.close-modal');
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+    loadEvents();
+    setupEventListeners();
+});
+
+// Charger les événements depuis le serveur
+async function loadEvents() {
+    try {
+        const response = await fetch('get_events.php');
+        const data = await response.json();
+        
+        if (data.success) {
+            events = data.data;
+            renderEvents();
+        } else {
+            console.error('Erreur:', data.error);
+            alert('Erreur lors du chargement des événements');
         }
-    ];
-    
-    // Variables pour la pagination
-    const itemsPerPage = 5;
-    let currentPage = 1;
-    
-    // Éléments DOM
-    const eventsList = document.getElementById('events-list');
-    const pagination = document.getElementById('pagination');
-    const eventModal = document.getElementById('event-modal');
-    const viewEventModal = document.getElementById('view-event-modal');
-    const eventForm = document.getElementById('event-form');
-    const modalTitle = document.getElementById('modal-title');
-    const searchInput = document.getElementById('search-events');
-    
-    // Boutons
-    const addEventBtn = document.getElementById('add-event-btn');
-    const cancelEventBtn = document.getElementById('cancel-event');
-    const closeModalBtns = document.querySelectorAll('.close-modal');
-    
-    // Initialisation
-    document.addEventListener('DOMContentLoaded', () => {
-        renderEvents();
-        setupEventListeners();
-        updateStats();
-    });
-    
-    // Mise à jour des statistiques
-    function updateStats() {
-        const totalEvents = events.length;
-        const activeEvents = events.filter(e => e.status === 'published').length;
-        const pendingEvents = events.filter(e => e.status === 'draft').length;
-        const totalParticipants = totalEvents * 150; // Estimation simple
-        
-        document.getElementById('total-events').textContent = totalEvents;
-        document.getElementById('active-events').textContent = activeEvents;
-        document.getElementById('pending-events').textContent = pendingEvents;
-        document.getElementById('total-participants').textContent = totalParticipants.toLocaleString();
+    } catch (error) {
+        console.error('Erreur de chargement:', error);
+        alert('Erreur de connexion au serveur');
     }
+}
+
+// Configuration des écouteurs d'événements
+function setupEventListeners() {
+    addEventBtn.addEventListener('click', openAddEventModal);
+    cancelEventBtn.addEventListener('click', closeEventModal);
+    eventForm.addEventListener('submit', saveEvent);
+    searchInput.addEventListener('input', handleSearch);
     
-    // Configuration des écouteurs d'événements
-    function setupEventListeners() {
-        addEventBtn.addEventListener('click', openAddEventModal);
-        cancelEventBtn.addEventListener('click', closeEventModal);
-        eventForm.addEventListener('submit', saveEvent);
-        searchInput.addEventListener('input', handleSearch);
-        
-        closeModalBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (e.target.closest('#event-modal')) {
-                    closeEventModal();
-                }
-                if (e.target.closest('#view-event-modal')) {
-                    closeViewEventModal();
-                }
-            });
-        });
-        
-        // Fermeture des modales en cliquant à l'extérieur
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (e.target.closest('#event-modal')) {
                 closeEventModal();
+            }
+            if (e.target.closest('#view-event-modal')) {
                 closeViewEventModal();
             }
         });
-        
-        // Validation des dates
-        const dateDebut = document.getElementById('date_debut');
-        const dateFin = document.getElementById('date_fin');
-        
-        dateDebut.addEventListener('change', () => {
-            // Assurer que la date de fin n'est pas antérieure à la date de début
-            if (dateFin.value && dateFin.value < dateDebut.value) {
-                dateFin.value = dateDebut.value;
-            }
-            dateFin.min = dateDebut.value;
-        });
-    }
+    });
     
-    // Afficher les événements
-    function renderEvents(filteredEvents = null) {
-        const eventsToRender = filteredEvents || events;
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const paginatedEvents = eventsToRender.slice(startIndex, endIndex);
-        
-        eventsList.innerHTML = '';
-        
-        if (paginatedEvents.length === 0) {
-            eventsList.innerHTML = `
-                <tr>
-                    <td colspan="5" style="text-align: center;">Aucun événement trouvé</td>
-                </tr>
-            `;
-            return;
+    // Fermeture des modales en cliquant à l'extérieur
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            closeEventModal();
+            closeViewEventModal();
         }
-        
-        paginatedEvents.forEach(event => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${event.title}</td>
-                <td>${formatDate(event.date)} à ${event.time}</td>
-                <td>${getCategoryName(event.category)}</td>
-                <td><span class="status-badge ${event.status}">${getStatusName(event.status)}</span></td>
-                <td class="actions-cell">
-                    <button class="btn-view" data-id="${event.id}">Voir</button>
-                    <button class="btn-edit" data-id="${event.id}">Éditer</button>
-                    <button class="btn-delete" data-id="${event.id}" disabled>Supprimer</button>
-                </td>
-            `;
-            eventsList.appendChild(row);
-        });
-        
-        // Ajout des écouteurs sur les boutons d'actions
-        document.querySelectorAll('.btn-view').forEach(btn => {
-            btn.addEventListener('click', () => openViewEventModal(parseInt(btn.dataset.id)));
-        });
-        
-        document.querySelectorAll('.btn-edit').forEach(btn => {
-            btn.addEventListener('click', () => openEditEventModal(parseInt(btn.dataset.id)));
-        });
-        
-        // Le bouton supprimer est désactivé, donc pas d'écouteur nécessaire
-        
-        renderPagination(eventsToRender.length);
-    }
+    });
     
-    // Générer la pagination
-    function renderPagination(totalItems) {
-        const pageCount = Math.ceil(totalItems / itemsPerPage);
-        pagination.innerHTML = '';
-        
-        if (pageCount <= 1) return;
-        
-        // Bouton précédent
-        if (currentPage > 1) {
-            const prevBtn = document.createElement('button');
-            prevBtn.textContent = '«';
-            prevBtn.addEventListener('click', () => {
-                currentPage--;
-                renderEvents();
-            });
-            pagination.appendChild(prevBtn);
-        }
-        
-        // Pages numérotées
-        for (let i = 1; i <= pageCount; i++) {
-            const pageBtn = document.createElement('button');
-            pageBtn.textContent = i;
-            if (i === currentPage) {
-                pageBtn.classList.add('active');
-            }
-            pageBtn.addEventListener('click', () => {
-                currentPage = i;
-                renderEvents();
-            });
-            pagination.appendChild(pageBtn);
-        }
-        
-        // Bouton suivant
-        if (currentPage < pageCount) {
-            const nextBtn = document.createElement('button');
-            nextBtn.textContent = '»';
-            nextBtn.addEventListener('click', () => {
-                currentPage++;
-                renderEvents();
-            });
-            pagination.appendChild(nextBtn);
-        }
-    }
+    // Validation des dates
+    const dateDebut = document.getElementById('date_debut');
+    const dateFin = document.getElementById('date_fin');
     
-    // Fonction de recherche
-    function handleSearch() {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        
-        if (searchTerm === '') {
-            // Si le champ de recherche est vide, afficher tous les événements
-            renderEvents();
-            return;
+    dateDebut.addEventListener('change', () => {
+        if (dateFin.value && dateFin.value < dateDebut.value) {
+            dateFin.value = dateDebut.value;
         }
-        
-        // Filtrer les événements qui correspondent au terme de recherche
-        const filteredEvents = events.filter(event => 
-            event.title.toLowerCase().includes(searchTerm) || 
-            event.category.toLowerCase().includes(searchTerm) ||
-            formatDate(event.date).toLowerCase().includes(searchTerm) ||
-            (event.nom && event.nom.toLowerCase().includes(searchTerm)) ||
-            (event.prenom && event.prenom.toLowerCase().includes(searchTerm)) ||
-            (event.telephone && event.telephone.toLowerCase().includes(searchTerm))
-        );
-        
-        // Réinitialiser la pagination lors d'une recherche
-        currentPage = 1;
-        
-        // Afficher les résultats filtrés
-        renderEvents(filteredEvents);
-    }
+        dateFin.min = dateDebut.value;
+    });
+}
+
+// Afficher les événements
+function renderEvents(filteredEvents = null) {
+    const eventsToRender = filteredEvents || events;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedEvents = eventsToRender.slice(startIndex, endIndex);
     
-    // Ouvrir la modale pour visualiser un événement
-    function openViewEventModal(id) {
-        const event = events.find(e => e.id === id);
-        if (!event) return;
-        
-        const eventDetails = document.getElementById('event-details');
-        eventDetails.innerHTML = `
-            <div class="card">
-                <h3>${event.title}</h3>
-                <p><strong>Date:</strong> ${formatDate(event.date)}</p>
-                <p><strong>Heure:</strong> ${event.time}</p>
-                <p><strong>Espace:</strong> ${getCategoryName(event.category)}</p>
-                <p><strong>Statut:</strong> <span class="status-badge ${event.status}">${getStatusName(event.status)}</span></p>
-                ${event.nom ? `<p><strong>Nom:</strong> ${event.nom} ${event.prenom || ''}</p>` : ''}
-                ${event.telephone ? `<p><strong>Téléphone:</strong> ${event.telephone}</p>` : ''}
-                ${event.adresse ? `<p><strong>Adresse:</strong> ${event.adresse}</p>` : ''}
-                ${event.nombre_tables ? `<p><strong>Nombre de tables:</strong> ${event.nombre_tables}</p>` : ''}
-                ${event.message ? `<p><strong>Message:</strong> ${event.message}</p>` : ''}
-            </div>
+    eventsList.innerHTML = '';
+    
+    if (paginatedEvents.length === 0) {
+        eventsList.innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align: center;">Aucun événement trouvé</td>
+            </tr>
         `;
-        
-        viewEventModal.style.display = 'flex';
+        return;
     }
     
-    // Fermer la modale de visualisation
-    function closeViewEventModal() {
-        viewEventModal.style.display = 'none';
-    }
+    paginatedEvents.forEach(event => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${event.titre}</td>
+            <td>${formatDate(event.dateDebut)}</td>
+            <td>${event.espace ? event.espace.replace('salle', 'Salle ') : 'Non spécifié'}</td>
+            <td><span class="status-badge ${event.état}">${event.état}</span></td>
+            <td class="actions-cell">
+                <button class="btn-view" data-id="${event.id}">Voir</button>
+                <button class="btn-edit" data-id="${event.id}">Éditer</button>
+                <button class="btn-delete" data-id="${event.id}">Supprimer</button>
+            </td>
+        `;
+        eventsList.appendChild(row);
+    });
     
-    // Ouvrir la modale pour ajouter un événement
-    function openAddEventModal() {
-        modalTitle.textContent = 'Ajouter un événement';
-        eventForm.reset();
-        document.getElementById('event-id').value = '';
-        
-        // Définir la date minimale pour les dates
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('date_debut').min = today;
-        document.getElementById('date_fin').min = today;
-        
-        eventModal.style.display = 'flex';
-    }
+    // Ajout des écouteurs sur les boutons d'actions
+    document.querySelectorAll('.btn-view').forEach(btn => {
+        btn.addEventListener('click', () => openViewEventModal(parseInt(btn.dataset.id)));
+    });
     
-    // Ouvrir la modale pour éditer un événement
-    function openEditEventModal(id) {
-        const event = events.find(e => e.id === id);
-        if (!event) return;
-        
-        modalTitle.textContent = 'Modifier l\'événement';
-        
-        // Remplir le formulaire avec les données de l'événement
-        document.getElementById('event-id').value = event.id;
-        
-        // Remplir les informations de base
-        if (event.nom) document.getElementById('nom').value = event.nom;
-        if (event.prenom) document.getElementById('prenom').value = event.prenom;
-        if (event.telephone) document.getElementById('telephone').value = event.telephone;
-        if (event.adresse) document.getElementById('adresse').value = event.adresse;
-        if (event.nombre_tables) document.getElementById('nombre_tables').value = event.nombre_tables;
-        
-        // Dates
-        document.getElementById('date_debut').value = event.date;
-        if (event.date_fin) {
-            document.getElementById('date_fin').value = event.date_fin;
-        } else {
-            // Par défaut, même date que la date de début
-            document.getElementById('date_fin').value = event.date;
-        }
-        
-        // Sélectionner la salle appropriée
-        const salleRadios = document.querySelectorAll('input[name="espace"]');
-        salleRadios.forEach(radio => {
-            radio.checked = radio.value === event.category;
+    document.querySelectorAll('.btn-edit').forEach(btn => {
+        btn.addEventListener('click', () => openEditEventModal(parseInt(btn.dataset.id)));
+    });
+    
+    document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', () => deleteEvent(parseInt(btn.dataset.id)));
+    });
+    
+    renderPagination(eventsToRender.length);
+}
+
+// Générer la pagination
+function renderPagination(totalItems) {
+    const pageCount = Math.ceil(totalItems / itemsPerPage);
+    pagination.innerHTML = '';
+    
+    if (pageCount <= 1) return;
+    
+    // Bouton précédent
+    if (currentPage > 1) {
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '«';
+        prevBtn.addEventListener('click', () => {
+            currentPage--;
+            renderEvents();
         });
-        
-        // Message (s'il existe)
-        if (event.message) document.getElementById('message').value = event.message;
-        
-        // Afficher la modale
-        eventModal.style.display = 'flex';
+        pagination.appendChild(prevBtn);
     }
     
-    // Fermer la modale d'événement
-    function closeEventModal() {
-        eventModal.style.display = 'none';
+    // Pages numérotées
+    for (let i = 1; i <= pageCount; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.textContent = i;
+        if (i === currentPage) {
+            pageBtn.classList.add('active');
+        }
+        pageBtn.addEventListener('click', () => {
+            currentPage = i;
+            renderEvents();
+        });
+        pagination.appendChild(pageBtn);
     }
     
-    // Enregistrer un événement (ajout ou modification)
-    function saveEvent(e) {
-        e.preventDefault();
-        
-        const eventId = document.getElementById('event-id').value;
-        const eventData = {
-            // Récupération des valeurs du formulaire
-            title: "Mariage", // Titre par défaut ou autre logique selon vos besoins
-            date: document.getElementById('date_debut').value,
-            time: eventId ? events.find(e => e.id === parseInt(eventId)).time || "20:00" : "20:00", // Conserver l'heure existante ou utiliser une valeur par défaut
-            
-            // Trouver quelle salle est sélectionnée
-            category: document.querySelector('input[name="espace"]:checked')?.value || 'salle1',
-                
-            // Autres données
-            status: eventId ? events.find(e => e.id === parseInt(eventId)).status : 'draft',
-            
-            // Informations personnelles
-            nom: document.getElementById('nom').value,
-            prenom: document.getElementById('prenom').value,
-            telephone: document.getElementById('telephone').value,
-            adresse: document.getElementById('adresse').value,
-            
-            // Nombre de tables
-            nombre_tables: document.getElementById('nombre_tables').value,
-            
-            // Date de fin
-            date_fin: document.getElementById('date_fin').value,
-            
-            // Message
-            message: document.getElementById('message').value,
-            
-            // Options sélectionnées
-            options: {
-                accueil: Array.from(document.querySelectorAll('input[name="accueil[]"]:checked')).map(cb => cb.value),
-                cocktail: Array.from(document.querySelectorAll('input[name="cocktail[]"]:checked')).map(cb => cb.value),
-                diner: Array.from(document.querySelectorAll('input[name="diner[]"]:checked')).map(cb => cb.value),
-                soiree: Array.from(document.querySelectorAll('input[name="soiree[]"]:checked')).map(cb => cb.value),
-                piece_montee: document.querySelector('input[name="piece_montee"]:checked')?.value || 'non'
-            }
-        };
-        
-        if (eventId) {
-            // Mise à jour d'un événement existant
-            const index = events.findIndex(e => e.id === parseInt(eventId));
-            if (index !== -1) {
-                events[index] = {
-                    ...events[index],
-                    ...eventData
-                };
-            }
-        } else {
-            // Ajout d'un nouvel événement
-            const newId = events.length > 0 ? Math.max(...events.map(e => e.id)) + 1 : 1;
-            events.push({
-                id: newId,
-                ...eventData
+    // Bouton suivant
+    if (currentPage < pageCount) {
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = '»';
+        nextBtn.addEventListener('click', () => {
+            currentPage++;
+            renderEvents();
+        });
+        pagination.appendChild(nextBtn);
+    }
+}
+
+// Fonction de recherche
+function handleSearch() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    
+    if (searchTerm === '') {
+        renderEvents();
+        return;
+    }
+    
+    const filteredEvents = events.filter(event => 
+        (event.titre && event.titre.toLowerCase().includes(searchTerm)) || 
+        (event.espace && event.espace.toLowerCase().includes(searchTerm)) ||
+        (event.dateDebut && formatDate(event.dateDebut).toLowerCase().includes(searchTerm)) ||
+        (event.nom && event.nom.toLowerCase().includes(searchTerm)) ||
+        (event.prenom && event.prenom.toLowerCase().includes(searchTerm)) ||
+        (event.telephone && event.telephone.toLowerCase().includes(searchTerm))
+    );
+    
+    currentPage = 1;
+    renderEvents(filteredEvents);
+}
+
+// Ouvrir la modale pour visualiser un événement
+function openViewEventModal(id) {
+    const event = events.find(e => e.id === id);
+    if (!event) return;
+    
+    const eventDetails = document.getElementById('event-details');
+    
+    // Créer le contenu des détails
+    let detailsHTML = `
+        <div class="event-detail-card">
+            <h3>${event.titre}</h3>
+            <p><strong>Date de début:</strong> ${formatDate(event.dateDebut)}</p>
+            <p><strong>Date de fin:</strong> ${formatDate(event.dateFin)}</p>
+            <p><strong>Statut:</strong> <span class="status-badge ${event.état}">${event.état}</span></p>
+            <p><strong>Espace:</strong> ${event.espace ? event.espace.replace('salle', 'Salle ') : 'Non spécifié'}</p>
+    `;
+    
+    // Ajouter les informations personnelles si disponibles
+    if (event.nom || event.prenom) {
+        detailsHTML += `<p><strong>Client:</strong> ${event.prenom || ''} ${event.nom || ''}</p>`;
+    }
+    if (event.telephone) {
+        detailsHTML += `<p><strong>Téléphone:</strong> ${event.telephone}</p>`;
+    }
+    
+    // Ajouter les détails de réservation
+    detailsHTML += `
+            <p><strong>Nombre de tables:</strong> ${event.nombre_tables || 'Non spécifié'}</p>
+    `;
+    
+    // Ajouter les options sélectionnées
+    detailsHTML += `<div class="event-options">`;
+    
+    const addOptionsSection = (title, options) => {
+        if (options && options.length > 0) {
+            detailsHTML += `<h4>${title}:</h4><ul>`;
+            options.forEach(opt => {
+                detailsHTML += `<li>${getOptionName(opt)}</li>`;
+            });
+            detailsHTML += `</ul>`;
+        }
+    };
+    
+    addOptionsSection('Accueil', event.accueil);
+    addOptionsSection('Cocktail', event.cocktail);
+    addOptionsSection('Dîner', event.diner);
+    addOptionsSection('Soirée', event.soiree);
+    
+    if (event.piece_montee === 'oui') {
+        detailsHTML += `<p><strong>Pièce montée:</strong> Oui</p>`;
+    }
+    
+    // Ajouter le message s'il existe
+    if (event.message) {
+        detailsHTML += `<div class="event-message"><strong>Message:</strong><p>${event.message}</p></div>`;
+    }
+    
+    detailsHTML += `</div></div>`;
+    
+    eventDetails.innerHTML = detailsHTML;
+    viewEventModal.style.display = 'flex';
+}
+
+// Fermer la modale de visualisation
+function closeViewEventModal() {
+    viewEventModal.style.display = 'none';
+}
+
+// Ouvrir la modale pour ajouter un événement
+function openAddEventModal() {
+    modalTitle.textContent = 'Ajouter un événement';
+    eventForm.reset();
+    document.getElementById('event-id').value = '';
+    
+    // Définir la date minimale pour aujourd'hui
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date_debut').min = today;
+    document.getElementById('date_fin').min = today;
+    
+    // Définir le statut par défaut
+    document.getElementById('etat').value = 'planifié';
+    
+    eventModal.style.display = 'flex';
+}
+
+// Ouvrir la modale pour éditer un événement
+function openEditEventModal(id) {
+    const event = events.find(e => e.id === id);
+    if (!event) return;
+    
+    modalTitle.textContent = 'Modifier l\'événement';
+    
+    // Remplir le formulaire avec les données de l'événement
+    document.getElementById('event-id').value = event.id;
+    document.getElementById('titre').value = event.titre;
+    document.getElementById('date_debut').value = event.dateDebut;
+    document.getElementById('date_fin').value = event.dateFin;
+    document.getElementById('etat').value = event.état;
+    
+    // Informations personnelles
+    if (event.nom) document.getElementById('nom').value = event.nom;
+    if (event.prenom) document.getElementById('prenom').value = event.prenom;
+    if (event.telephone) document.getElementById('telephone').value = event.telephone;
+    
+    // Détails de réservation
+    if (event.nombre_tables) document.getElementById('nombre_tables').value = event.nombre_tables;
+    
+    // Sélectionner la salle
+    if (event.espace) {
+        const salleRadio = document.querySelector(`input[name="espace"][value="${event.espace}"]`);
+        if (salleRadio) salleRadio.checked = true;
+    }
+    
+    // Sélectionner les options
+    const checkOptions = (name, values) => {
+        if (values && values.length > 0) {
+            values.forEach(val => {
+                const checkbox = document.querySelector(`input[name="${name}[]"][value="${val}"]`);
+                if (checkbox) checkbox.checked = true;
             });
         }
+    };
+    
+    checkOptions('accueil', event.accueil);
+    checkOptions('cocktail', event.cocktail);
+    checkOptions('diner', event.diner);
+    checkOptions('soiree', event.soiree);
+    
+    // Pièce montée
+    if (event.piece_montee) {
+        const pieceMonteeRadio = document.querySelector(`input[name="piece_montee"][value="${event.piece_montee}"]`);
+        if (pieceMonteeRadio) pieceMonteeRadio.checked = true;
+    }
+    
+    // Message
+    if (event.message) document.getElementById('message').value = event.message;
+    
+    eventModal.style.display = 'flex';
+}
+
+// Fermer la modale d'événement
+function closeEventModal() {
+    eventModal.style.display = 'none';
+}
+
+// Enregistrer un événement (ajout ou modification)
+async function saveEvent(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(eventForm);
+    const eventId = document.getElementById('event-id').value;
+    
+    // Récupérer les cases à cocher sélectionnées
+    const getCheckedValues = (name) => {
+        return Array.from(document.querySelectorAll(`input[name="${name}[]"]:checked`)).map(el => el.value);
+    };
+    
+    // Créer un objet avec toutes les données
+    const eventData = {
+        titre: formData.get('titre'),
+        date_debut: formData.get('date_debut'),
+        date_fin: formData.get('date_fin'),
+        etat: formData.get('etat'),
+        nom: formData.get('nom'),
+        prenom: formData.get('prenom'),
+        telephone: formData.get('telephone'),
+        nombre_tables: formData.get('nombre_tables'),
+        espace: formData.get('espace'),
+        accueil: getCheckedValues('accueil'),
+        cocktail: getCheckedValues('cocktail'),
+        diner: getCheckedValues('diner'),
+        soiree: getCheckedValues('soiree'),
+        piece_montee: formData.get('piece_montee'),
+        message: formData.get('message')
+    };
+    
+    // Déterminer l'URL et la méthode en fonction de l'ID
+    const url = eventId ? 'update_event.php' : 'create_event.php';
+    const method = 'POST';
+    
+    try {
+        // Ajouter l'ID si c'est une modification
+        if (eventId) {
+            eventData.id = eventId;
+        }
         
-        closeEventModal();
-        updateStats();
-        renderEvents();
+        const response = await fetch(url, {
+            method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(eventData)
+        });
         
-        // Feedback pour l'utilisateur
-        alert(eventId ? 'Événement mis à jour avec succès!' : 'Événement ajouté avec succès!');
+        const data = await response.json();
+        
+        if (data.success) {
+            loadEvents(); // Recharger la liste
+            closeEventModal();
+            alert(eventId ? 'Événement mis à jour avec succès!' : 'Événement ajouté avec succès!');
+        } else {
+            alert('Erreur: ' + (data.error || 'Une erreur est survenue'));
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert('Erreur de connexion au serveur');
+    }
+}
+
+// Supprimer un événement
+async function deleteEvent(id) {
+    if (!confirm('Voulez-vous vraiment supprimer cet événement ? Cette action est irréversible.')) {
+        return;
     }
     
-    // Utilitaires
-    function formatDate(dateString) {
-        if (!dateString) return '';
-        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-        return new Date(dateString).toLocaleDateString('fr-FR', options);
+    try {
+        const response = await fetch('delete_event.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            loadEvents(); // Recharger la liste
+            alert('Événement supprimé avec succès');
+        } else {
+            alert('Erreur: ' + (data.error || 'Échec de la suppression'));
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert('Erreur de connexion au serveur');
     }
+}
+
+// Utilitaires
+function formatDate(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+}
+
+function getOptionName(optionValue) {
+    const optionsMap = {
+        'dattes': 'Dattes Majhoul',
+        'lait': 'Lait',
+        'amuse_bouches': 'Amuse-bouches',
+        'noga': 'Noga',
+        'chocolat': 'Chocolat',
+        'macaron': 'Macaron',
+        'jus': 'Jus varié',
+        'gateaux': 'Gâteaux soirée',
+        'the': 'Thé',
+        'sales': 'Assortiment des salés',
+        'sushi': 'Sushi',
+        'fruits_mer': 'Pastilla Fruits de mer',
+        'fruits_poulet': 'Pastilla Poulet',
+        'poisson': 'Poisson',
+        'tagine': 'Tagine',
+        'boeuf': 'Bœuf',
+        'mechoui': 'Mechoui',
+        'poulet': 'Poulet',
+        'fruits': 'Fruits de saison',
+        'amande': 'Gâteau 100% amande',
+        'glace': 'Glace',
+        'tarte': 'Tarte'
+    };
     
-    function getCategoryName(categoryKey) {
-        const categories = {
-            'salle1': 'Salle 1',
-            'salle2': 'Salle 2',
-            'salle3': 'Salle 3'
-        };
-        return categories[categoryKey] || categoryKey;
-    }
-    
-    function getStatusName(statusKey) {
-        const statuses = {
-            'published': 'Publié',
-            'draft': 'Brouillon',
-            'cancelled': 'Annulé',
-            'completed': 'Terminé'
-        };
-        return statuses[statusKey] || statusKey;
-    }
+    return optionsMap[optionValue] || optionValue;
+}
 </script>
 </body>
 </html>

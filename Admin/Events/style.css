@@ -407,3 +407,41 @@ header {
     }
   }
   
+   /* Styles CSS supplémentaires pour la gestion des événements */
+   .status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.status-badge.planifié { background-color: #fff3cd; color: #856404; }
+.status-badge.confirmé { background-color: #d4edda; color: #155724; }
+.status-badge.annulé { background-color: #f8d7da; color: #721c24; }
+.status-badge.terminé { background-color: #d1ecf1; color: #0c5460; }
+
+.salle-option {
+    display: inline-block;
+    margin-right: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+.salle-option img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid transparent;
+}
+.salle-option input[type="radio"]:checked + img {
+    border-color: #4CAF50;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
