@@ -18,9 +18,16 @@
             <p>Créez l'événement de vos rêves avec notre Pack Modèle dès maintenant!</p>
         </div>
     </div>
+    
+    <?php if (isset($_GET['error'])): ?>
+    <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; margin: 10px auto; max-width: 800px; border-radius: 5px; text-align: center;">
+        <strong>Erreur:</strong> <?php echo htmlspecialchars($_GET['error']); ?>
+    </div>
+    <?php endif; ?>
+    
     <section>
         <div class="debut">
-            <form class="reservation-form">
+            <form class="reservation-form" action="process_reservation.php" method="POST">
                 <div class="form-section">
                     <h3>Informations Personnelles</h3>
                     <div class="form-row">
@@ -69,17 +76,17 @@
                     <h3>Choix de l'Espace <span class="required-indicator">*</span></h3>
                     <div class="salles">
                         <label class="salle-option">
-                            <input type="checkbox" name="espace[]" value="salle1">
+                            <input type="radio" name="espace[]" value="salle1" required>
                             <img src="include/images/salle1.jpg" alt="Salle 1">
                             <span class="salle-label">Salle 1</span>
                         </label>
                         <label class="salle-option">
-                            <input type="checkbox" name="espace[]" value="salle2">
+                            <input type="radio" name="espace[]" value="salle2">
                             <img src="include/images/salle2.jpg" alt="Salle 2">
                             <span class="salle-label">Salle 2</span>
                         </label>
                         <label class="salle-option">
-                            <input type="checkbox" name="espace[]" value="salle3">
+                            <input type="radio" name="espace[]" value="salle3">
                             <img src="include/images/salle3.jpg" alt="Salle 3">
                             <span class="salle-label">Salle 3</span>
                         </label>
@@ -138,7 +145,7 @@
                             <input type="checkbox" name="diner[]" value="fruits_mer"> Pastilla Fruits de mer
                         </label>
                         <label class="checkbox-item">
-                            <input type="checkbox" name="diner[]" value="pastilla_poulet"> Pastilla Poulet
+                            <input type="checkbox" name="diner[]" value="fruits_poulet"> Pastilla Poulet
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="diner[]" value="poisson"> Poisson
@@ -206,47 +213,65 @@
     <?php include '../footer.html'; ?>
     
     <script>
-        document.querySelector('.reservation-form').addEventListener('submit', function(e) {
-            const form = e.target;
-            let isValid = true;
-            let message = "";
+        document.addEventListener('DOMContentLoaded', function() {
+            // Définir la date minimale pour aujourd'hui
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date_debut').min = today;
+            document.getElementById('date_fin').min = today;
             
-            // Champs obligatoires classiques
-            const requiredFields = form.querySelectorAll('input[required], textarea[required], select[required]');
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
+            // Validation des dates
+            const dateDebut = document.getElementById('date_debut');
+            const dateFin = document.getElementById('date_fin');
+            
+            dateDebut.addEventListener('change', function() {
+                if (dateFin.value && dateFin.value < dateDebut.value) {
+                    dateFin.value = dateDebut.value;
                 }
+                dateFin.min = dateDebut.value;
             });
             
-            // Groupes de checkbox
-            const checkboxGroups = [
-                { name: "accueil[]", label: "Accueil" },
-                { name: "cocktail[]", label: "Cocktail Réception" },
-                { name: "diner[]", label: "Dîner Marocain" },
-                { name: "soiree[]", label: "Soirée" },
-                { name: "espace[]", label: "Choix de l'espace" },
-            ];
-            
-            checkboxGroups.forEach(group => {
-                const checkboxes = form.querySelectorAll(`input[name="${group.name}"]:checked`);
-                if (checkboxes.length === 0) {
+            // Validation du formulaire
+            document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+                const form = e.target;
+                let isValid = true;
+                let message = "";
+                
+                // Champs obligatoires classiques
+                const requiredFields = form.querySelectorAll('input[required], textarea[required], select[required]');
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                    }
+                });
+                
+                // Groupes de checkbox
+                const checkboxGroups = [
+                    { name: "accueil[]", label: "Accueil" },
+                    { name: "cocktail[]", label: "Cocktail Réception" },
+                    { name: "diner[]", label: "Dîner Marocain" },
+                    { name: "soiree[]", label: "Soirée" }
+                ];
+                
+                checkboxGroups.forEach(group => {
+                    const checkboxes = form.querySelectorAll(`input[name="${group.name}"]:checked`);
+                    if (checkboxes.length === 0) {
+                        isValid = false;
+                        message += `Veuillez sélectionner au moins une option pour "${group.label}".\n`;
+                    }
+                });
+                        
+                // Validation de radio (Pièce montée)
+                const pieceMontee = form.querySelectorAll('input[name="piece_montee"]:checked');
+                if (pieceMontee.length === 0) {
                     isValid = false;
-                    message += `Veuillez sélectionner au moins une option pour "${group.label}".\n`;
+                    message += `Veuillez choisir une option pour "Pièce montée Américaine".\n`;
+                }
+                        
+                if (!isValid) {
+                    e.preventDefault();
+                    alert("⚠️ Merci de remplir tous les champs obligatoires marqués par une étoile (*).\n\n" + message);
                 }
             });
-                    
-            // Validation de radio (Pièce montée)
-            const pieceMontee = form.querySelectorAll('input[name="piece_montee"]:checked');
-            if (pieceMontee.length === 0) {
-                isValid = false;
-                message += `Veuillez choisir une option pour "Pièce montée Américaine".\n`;
-            }
-                    
-            if (!isValid) {
-                e.preventDefault();
-                alert("⚠️ Merci de remplir tous les champs obligatoires marqués par une étoile (*).\n\n" + message);
-            }
         });
     </script>
 </body>
